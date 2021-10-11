@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>HOP_DRIVER · Harmonie wiki</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">Harmonie wiki</span></div><form class="docs-search" action="../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../">Home</a></li><li><span class="tocitem">Getting Started</span><ul><li><span class="tocitem">Overview</span></li><li><span class="tocitem">Quick Start</span></li><li><span class="tocitem">Installation</span></li><li><span class="tocitem">Experiment Configuration</span></li><li><span class="tocitem">Suite Management</span></li></ul></li><li><span class="tocitem">NWP Components</span><ul><li><input class="collapse-toggle" id="menuitem-3-1" type="checkbox" checked/><label class="tocitem" for="menuitem-3-1"><span class="docs-label">Data Assimilation</span><i class="docs-chevron"></i></label><ul class="collapsed"><li class="is-active"><a class="tocitem" href>HOP_DRIVER</a><ul class="internal"><li><a class="tocitem" href="#HARMONIE-and-HOP_DRIVER-1"><span>HARMONIE and <code>HOP_DRIVER</code></span></a></li><li><a class="tocitem" href="#HOPOBS:-amsua-1"><span>HOPOBS: amsua</span></a></li><li><a class="tocitem" href="#HOP_DRIVER-1"><span>HOP_DRIVER</span></a></li></ul></li><li><a class="tocitem" href="../Screening/">Screening</a></li><li><a class="tocitem" href="../SingleObs/">Single Obs</a></li><li><a class="tocitem" href="../DFS/">DFS</a></li><li><a class="tocitem" href="../MTEN/">MTEN</a></li><li><a class="tocitem" href="../CHKEVO/">CHKEVO</a></li></ul></li><li><span class="tocitem">Forecast Model</span></li><li><span class="tocitem">EPS</span></li><li><input class="collapse-toggle" id="menuitem-3-4" type="checkbox"/><label class="tocitem" for="menuitem-3-4"><span class="docs-label">Post Processing</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../PostProcessing/Diagnostics/">Diagnostics</a></li><li><a class="tocitem" href="../../PostProcessing/FileConversion/">FileConversion</a></li><li><a class="tocitem" href="../../PostProcessing/FullPos/">FullPos</a></li><li><a class="tocitem" href="../../PostProcessing/gl/">GL</a></li><li><a class="tocitem" href="../../PostProcessing/Obsmon/">Obsmon</a></li><li><a class="tocitem" href="../../PostProcessing/xtool/">xtool</a></li><li><a class="tocitem" href="../../PostProcessing/PostPP/">PostPP</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-5" type="checkbox"/><label class="tocitem" for="menuitem-3-5"><span class="docs-label">Verification</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Verification/Extract4verification/">Extract4verification</a></li><li><a class="tocitem" href="../../Verification/HARP/">HARP</a></li><li><a class="tocitem" href="../../Verification/Obsmon/">Obsmon</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-6" type="checkbox"/><label class="tocitem" for="menuitem-3-6"><span class="docs-label">Visualization</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../PostProcessing/EpyGram/">EpyGram</a></li></ul></li></ul></li><li><span class="tocitem">System</span><ul><li><a class="tocitem" href="../../System/GitDeveloperDocumentation/">GitHub</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">NWP Components</a></li><li><a class="is-disabled">Data Assimilation</a></li><li class="is-active"><a href>HOP_DRIVER</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>HOP_DRIVER</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/Hirlam/Harmonie/blob/pre-CY46h1/docs/src/DataAssimilation/ObservationOperators.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Observation-operators-1"><a class="docs-heading-anchor" href="#Observation-operators-1">Observation operators</a><a class="docs-heading-anchor-permalink" href="#Observation-operators-1" title="Permalink"></a></h1><p>This documentation summarises the observation operator in HARMONIE and the use of the <code>HOP_DRIVER</code> tool. The test harness, <code>HOP_DRIVER</code>, calls the observation operator and generates FG departures without calling any model code or initialising any model modules. Firstly, the IFS is used to dump a single-observation <code>gom_plus</code> to file from the 1st trajectory of an experiment. Dumping multiple observations would require a more complex and full-featured dump (good file format, multi-process parallel). For code refactoring <code>HOP_DRIVER</code> can be used to test changes to the observation operator of a particular observation type.</p><h2 id="HARMONIE-and-HOP_DRIVER-1"><a class="docs-heading-anchor" href="#HARMONIE-and-HOP_DRIVER-1">HARMONIE and <code>HOP_DRIVER</code></a><a class="docs-heading-anchor-permalink" href="#HARMONIE-and-HOP_DRIVER-1" title="Permalink"></a></h2><p>The <code>HOP_DRIVER</code> program was first added to CY42R2 code. The tool was initially implemented to test refactoring of the IFS observation operator code <code>src/arpifs/op_obs/hop.F90</code>. At the moment the refactor branch (<a href="https://hirlam.org/trac/browser/branches/refactor/harmonie">branches/refactor/harmonie</a>) is the only HARMONIE code set that includes <code>HOP_DRIVER</code>. Instructions on how to prepare the code and run <code>HOP_DRIVER</code> using HARMONIE are outlined below.  Presentation made at [wiki:HirlamMeetings/ModelMeetings/ObOpWorkshop OOPS Observation Operator Workshop] may provide some useful background information.</p><h3 id="Comments-on-the-branch-1"><a class="docs-heading-anchor" href="#Comments-on-the-branch-1">Comments on the branch</a><a class="docs-heading-anchor-permalink" href="#Comments-on-the-branch-1" title="Permalink"></a></h3><ul><li>Code changes were required in order to compile cy42r2bf.04 + mods (provided by MF/ECMWF) in the HARMONIE system: [14312], [14325], [14326], [14330], [14331], [14332], [14333], [14334].</li><li>Changes were made to makeup in order to compile HOP_DRIVER correctly: [14310], [14327], [14328], [14329], [14335], [14362], [14382], [14392].</li><li>Included in [14362] is a change to ODBSQLFLAGS which is set to &quot;ODBSQLFLAGS=-O3 -C -UCANARI -DECMWF ODBEXTRAFLAGS&quot; in order to use ECMWF flavoured ODB used by HOP_DRIVER</li><li>On cca GNU compilers 4.9 are not fully supported, ie I had to build GRIB-API and NetCDF locally using gcc/gfortran 4.9 on cca</li><li>An environment variable, HOPDIR, is used to define the location of necessary input data for HOP_DRIVER</li><li>An environment variable, HOPCOMPILER, is used by the HOP_driver script to define the compiler used. This is used to compare results.</li></ul><h3 id="Running-on-ecgb/cca-1"><a class="docs-heading-anchor" href="#Running-on-ecgb/cca-1">Running on ecgb/cca</a><a class="docs-heading-anchor-permalink" href="#Running-on-ecgb/cca-1" title="Permalink"></a></h3><pre><code class="language-bash">cd $SCRATCH
+mkdir -p harmonie_releases/branches/refactor
+cd harmonie_releases/branches/refactor
+svn co https://svn.hirlam.org/branches/refactor/harmonie-42R2
+cd $HOME
+mkdir -p hm_home/rfexp
+cd hm_home/rfexp
+$SCRATCH/harmonie_releases/branches/refactor/harmonie-42R2/config-sh/Harmonie setup -r $SCRATCH/harmonie_releases/branches/refactor/harmonie-42R2
+$SCRATCH/harmonie_releases/branches/refactor/harmonie-42R2/config-sh/Harmonie hop_driver</code></pre><h3 id="Running-on-local-platforms-1"><a class="docs-heading-anchor" href="#Running-on-local-platforms-1">Running on local platforms</a><a class="docs-heading-anchor-permalink" href="#Running-on-local-platforms-1" title="Permalink"></a></h3><p>So far, only <code>METIE.LinuxRH7gnu</code>, which uses gfortran 4.9 and openmpi, has been tested. Input data for the amsua test case is available on <code>ECFS</code> at ECMWF: <code>ec:/dui/hopdata.tar.gz</code></p><pre><code class="language-bash">cd $HOME
+mkdir -p harmonie_releases/branches/refactor
+cd harmonie_releases/branches/refactor
+svn co https://svn.hirlam.org/branches/refactor/harmonie-42R2
+cd $HOME
+mkdir -p hm_home/rfexp
+cd hm_home/rfexp
+$HOME/harmonie_releases/branches/refactor/harmonie-42R2/config-sh/Harmonie setup -h METIE.LinuxRH7gnu -r $HOME/harmonie_releases/branches/refactor/harmonie-42R2
+$HOME/harmonie_releases/branches/refactor/harmonie-42R2/config-sh/Harmonie hop_driver</code></pre><h2 id="HOPOBS:-amsua-1"><a class="docs-heading-anchor" href="#HOPOBS:-amsua-1">HOPOBS: amsua</a><a class="docs-heading-anchor-permalink" href="#HOPOBS:-amsua-1" title="Permalink"></a></h2><p>Currently there is only one observation type, AMSU-A (HOPOBS=amsua), available for testing with HOP<em>DRIVER. Alan Geer (ECMWF) has already carried out the refactoring of the HOP code related to AMSU-A observations. A single observation is provided in the ECMA and is used to test the refactoring of the HOP code. To carry out the testing of the amsua refactoring HOPOBS should be set to amsua in `ecf/config</em>exp.h`.</p><p>|reportype@hdr|obstype@hdr|sensor@hdr|statid@hdr|stalt@hdr|date@hdr|time@hdr|degrees(lat)|degrees(lon)|report<em>status@hdr|datum</em>status@body|obsvalue@body|varno@body|vertco_type@body| | –- | –- | –- | –- | –- | –- | –- | –- | –- | –- | –- | –- | –- | –- |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 12                | 173.28        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 12                | 158.86        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 3                 | 227.40        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 3                 | 260.82        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 1                 | 256.90        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 1                 | 239.60        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 12                | NULL          | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 3                 | 217.69        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 1                 | 209.39        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 1                 | 214.05        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 1                 | 223.02        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 1                 | 234.42        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 1                 | 245.14        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 1                 | 257.18        | 119        | 3                |  | 1007          | 7           | 3          | &#39;        4&#39; | 832800    | !20140131 | 215914   | -29.5906     | 0.3113       | 1                 | 12                | 227.91        | 119        | 3                |</p><h2 id="HOP_DRIVER-1"><a class="docs-heading-anchor" href="#HOP_DRIVER-1">HOP_DRIVER</a><a class="docs-heading-anchor-permalink" href="#HOP_DRIVER-1" title="Permalink"></a></h2><h3 id="Using-HOP_DRIVER-1"><a class="docs-heading-anchor" href="#Using-HOP_DRIVER-1">Using HOP_DRIVER</a><a class="docs-heading-anchor-permalink" href="#Using-HOP_DRIVER-1" title="Permalink"></a></h3><p>With <code>LHOP_RESULTS=.TRUE.</code> <code>HOP_DRIVER</code> will write results to a file called <code>hop_results${MYPROC}</code> for comparison between online and offline results. (The results file is opened by <code>src/arpifs/var/taskob.F90</code>. <code>HOP_DRIVER</code> results are written to <code>hop_results${MYPROC}</code> in <code>src/arpifs/op_obs/hop.F90</code>:</p><pre><code class="language-fortran"> :
+ :
+IF(LHOP_RESULTS) THEN
+!$OMP CRITICAL
+  ! Output for comparison between online and offline results:
+  WRITE(CFILENAME,&#39;(&quot;hop_results&quot;,I4.4)&#39;) MYPROC
+  OPEN(NEWUNIT=IU,FILE=CFILENAME,POSITION=&#39;APPEND&#39;,ACTION=&#39;WRITE&#39;,FORM=&#39;FORMATTED&#39;)
+  DO JOBS = 1,KDLEN
+    DO JBODY=1,IMXBDY
+      IF (JBODY&gt;ICMBDY(JOBS)) CYCLE
+      IBODY = ROBODY%MLNKH2B(JOBS)+(JBODY-1)
+      WRITE(IU,&#39;(6I8,2F30.14)&#39;) MYPROC, KSET, JOBS, NINT(ROBHDR%DATA(JOBS,ROBHDR%SEQNO_AT_HDR)),&amp;
+        &amp; NINT(ROBODY%DATA(IBODY,ROBODY%VERTCO_REFERENCE_1_AT_BODY)), &amp;
+        &amp; NINT(ROBODY%DATA(IBODY,ROBODY%VARNO_AT_BODY)), ZHOFX(JOBS,JBODY), ZXPPB(JOBS,JBODY)
+
+    ENDDO
+  ENDDO
+  CLOSE(IU)
+!$OMP END CRITICAL
+ENDIF
+ :
+ :</code></pre><p>The HOP<em>driver script (based a script provided by MF) sorts the contents of the `hop</em>results0001` file for comparison with some results made available by ECMWF/MF:</p><pre><code class="language-bash"> :
+ :
+#
+# Check HOP_DRIVER results (available for gfotran and intel)
+#
+ln -s $HOPDIR/${HOPOBS}/results.$HOPCOMPILER .
+cat hop_results* | sort -k1,1n -k2,2n -k3,3n -k5,5n -k6,6n &gt; results.driver
+echo
+cmp -s results.$HOPCOMPILER results.driver
+if [ $? -eq 0] ; then
+  echo &quot;RESULTS ARE STRICTLY IDENTICAL TO THE REFERENCE FOR HOPCOMPILER=$HOPCOMPILER :-)&quot;
+else
+  echo Compare exactly against the results dumped from hop:
+  echo &quot;xxdiff results.$HOPCOMPILER results.driver &amp;&quot;
+  diff results.$HOPCOMPILER results.driver
+  exit 1
+fi
+ :
+ :</code></pre><p>On cca you will find useful output from HOP<em>DRIVER in cca:TEMP/hm</em>home/rfexp/archive/HOPDRIVEROUT:</p><pre><code class="language-bash">fort.4
+NODE.001_01
+hop_results0001
+results.gfortran
+results.driver</code></pre><h3 id="The-code-1"><a class="docs-heading-anchor" href="#The-code-1">The code</a><a class="docs-heading-anchor-permalink" href="#The-code-1" title="Permalink"></a></h3><p><code>HOP_DRIVER</code> is a short program written by Deborah Salmond (ECMWF) to test code changes made to the observation operator. The program <code>src/arpifs/programs/hop_driver.F90</code> is summarised here.</p><ul><li>The program sets up the model geometry and observations:</li></ul><pre><code class="language-fortran"> :
+ :
+CALL GEOMETRY_SET(YRGEOMETRY)
+CALL MODEL_SET(YRMODEL)
+
+CALL IFS_INIT(&#39;gc7a&#39;)
+
+CALL SUINTDYN
+
+CALL SUGEOMETRY(YRGEOMETRY)        !From GEOMETRY_SETUP
+
+CALL SURIP(YRGEOMETRY%YRDIM)             !From MODEL_CREATE
+
+! Set up Observations, Sets
+CALL SUDIMO(YRGEOMETRY,NULOUT)     !From SU0YOMB
+CALL SUOAF              !From SU0YOMB
+CALL SUALOBS            !From SU0YOMB
+CALL SURINC             !From SU0YOMB
+CALL SETUP_TESTVAR      !From SU0YOMB
+CALL SUOBS(YRGEOMETRY)              !From CNT1
+CALL ECSET(-1,NOBTOT,0) !From OBSV
+CALL SUPHEC(YRGEOMETRY,NULOUT)
+
+! Setup varbc (from cnt1.F90) and read VARBC.cycle
+CALL YVARBC%SETUP_TRAJ
+ :
+ :</code></pre><ul><li><code>HOP_DRIVER</code> then loops over the number of observation sets (<code>NSETOT</code>) and reads a <code>GOM PLUS</code> for each observation set. <code>HRETR</code> and <code>HOP</code> are then called:</li></ul><pre><code class="language-fortran"> :
+ :
+DO ISET=1,NSETOT
+  IDLEN   = MLNSET(ISET)
+  IMXBDY = MAX(MMXBDY(ISET),1)
+
+  ALLOCATE(ZHOFX(IDLEN,IMXBDY))
+  ZHOFX=RMDI
+
+  ! READ GOM_PLUS FROM DUMP
+  CALL GOM_PLUS_READ_DUMP(YGP5,ISET)
+
+  IF(IDLEN /= YGP5%NDLEN) THEN
+    CALL ABOR1(&#39;Sets are incompatible&#39;)
+  ENDIF
+
+  :
+  :
+  :
+
+  CALL HRETR(YRGEOMETRY%YRDIMV,IDLEN,IMXBDY,ISET,1,YGP5,YVARBC)
+
+  CALL HOP(YRGEOMETRY%YRDIMV,YGP5,YVARBC,IDLEN,IMXBDY,ISET,1,LDOOPS=.TRUE.,PHOFX=ZHOFX)
+
+  !write(0,*)&#39;ZHOFX&#39;,ZHOFX
+  DEALLOCATE(ZHOFX)
+
+  CALL GOM_PLUS_DESTROY(YGP5)
+
+ENDDO
+
+ :
+ :</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../../">« Home</a><a class="docs-footer-nextpage" href="../Screening/">Screening »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 11 October 2021 17:24">Monday 11 October 2021</span>. Using Julia version 1.6.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
