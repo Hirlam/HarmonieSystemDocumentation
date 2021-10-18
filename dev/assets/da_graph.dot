@@ -1,7 +1,7 @@
 digraph Harmonie {
 
 //splines=ortho
-//node[target="_blank"] // All hrefs open in new tab
+node[target="_blank"] // All hrefs open in new tab
 //labelloc="t"; fontsize=30;
 //label="Data Assimilation in Harmonie-Arome"
 
@@ -131,19 +131,19 @@ ECMWF_CANARI_SST_SIC_YYYYMMDD_HH ->  ECMWF_CANARI_SST_SIC[label="Interpol_ec_sst
 //-----------------------------------------------------------------
 //            URL
 //----------------------------------------------------------------
-Prepare_ob       [href="../Observations/ObservationData.md"]
-Canari           [href="../DataAssimilation/Surface/CANARI.md"]
-Forecast         [href="../ForecastModel/Forest.md"]
-Oulan            [href="../Observations/Oulan.,d"]
-Bator            [href="../Observations/Bator.md"]
+Prepare_ob       [href="../Observations/ObservationData/index.html"]
+Canari           [href="../DataAssimilation/Surface/CANARI/index.html"]
+Forecast         [href="../ForecastModel/Forest/index.html"]
+Oulan            [href="../Observations/Oulan/index.html"]
+Bator            [href="../Observations/Bator/index.html"]
 Minim            [href="http://www.umr-cnrm.fr/gmapdoc/IMG/pdf/ykminim45.pdf"]
-Screening        [href="../DataAssimilation/Screening.md"]
-Boundary_strategy[href="../Boundaries/BoundaryFilePreparation.md"]
-stabal96cv       [href="../DataAssimilation/Structurefunctions.md"]
-stabal96bal      [href="../DataAssimilation/Structurefunctions.md"]
-param_batorcfg   [href="../Observations/Bator.md#param.cfg"]
-LISTE_NOIRE_DIAP [href="../Observations/UseofObservations.md"]
-LISTE_LOC        [href="../Observations/UseofObservations.md"] 
+Screening        [href="../DataAssimilation/Screening/index.html"]
+Boundary_strategy[href="../Boundaries/BoundaryFilePreparation/index.html"]
+stabal96cv       [href="../DataAssimilation/Structurefunctions/index.html"]
+stabal96bal      [href="../DataAssimilation/Structurefunctions/index.html"]
+// param_batorcfg   [href="../Observations/Bator.md#param.cfg"]
+LISTE_NOIRE_DIAP [href="../Observations/UseofObservations/index.html"]
+LISTE_LOC        [href="../Observations/UseofObservations/index.html"] 
 
 // VarBC     [href="https://hirlam.org/trac/browser/trunk/harmonie/const/bias_corr/VARBC.cycle.SUMMER.00"]
 
