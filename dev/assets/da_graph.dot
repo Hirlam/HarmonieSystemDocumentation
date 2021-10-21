@@ -1,7 +1,7 @@
 digraph Harmonie {
 
 //splines=ortho
-node[target="_blank"] // All hrefs open in new tab
+// node[target="_blank"] // All hrefs open in new tab
 //labelloc="t"; fontsize=30;
 //label="Data Assimilation in Harmonie-Arome"
 
@@ -142,8 +142,8 @@ Boundary_strategy[href="../Boundaries/BoundaryFilePreparation/index.html"]
 stabal96cv       [href="../DataAssimilation/Structurefunctions/index.html"]
 stabal96bal      [href="../DataAssimilation/Structurefunctions/index.html"]
 // param_batorcfg   [href="../Observations/Bator.md#param.cfg"]
-LISTE_NOIRE_DIAP [href="../Observations/UseofObservations/index.html"]
-LISTE_LOC        [href="../Observations/UseofObservations/index.html"] 
+LISTE_NOIRE_DIAP [href="../Observations/Bator/index.html#LISTE_NOIRE_DIAP-1"]
+LISTE_LOC        [href="../Observations/Bator/index.html#LISTE_LOC-1"] 
 
 // VarBC     [href="https://hirlam.org/trac/browser/trunk/harmonie/const/bias_corr/VARBC.cycle.SUMMER.00"]
 
