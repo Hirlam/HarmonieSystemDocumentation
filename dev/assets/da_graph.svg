@@ -405,7 +405,7 @@
 <!-- Forecast -->
 <g id="node13" class="node">
 <title>Forecast</title>
-<g id="a_node13"><a xlink:href="../ForecastModel/Forest/index.html" xlink:title="Forecast">
+<g id="a_node13"><a xlink:href="../ForecastModel/Forecast/index.html" xlink:title="Forecast">
 <polygon fill="none" stroke="black" points="121.5,-36 43.5,-36 43.5,0 121.5,0 121.5,-36"/>
 <text text-anchor="middle" x="82.5" y="-14.3" font-family="Times,serif" font-size="14.00">Forecast</text>
 </a>

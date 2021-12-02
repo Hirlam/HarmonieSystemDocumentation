@@ -133,7 +133,7 @@ ECMWF_CANARI_SST_SIC_YYYYMMDD_HH ->  ECMWF_CANARI_SST_SIC[label="Interpol_ec_sst
 //----------------------------------------------------------------
 Prepare_ob       [href="../Observations/ObservationData/index.html"]
 Canari           [href="../DataAssimilation/Surface/CANARI/index.html"]
-Forecast         [href="../ForecastModel/Forest/index.html"]
+Forecast         [href="../ForecastModel/Forecast/index.html"]
 Oulan            [href="../Observations/Oulan/index.html"]
 Bator            [href="../Observations/Bator/index.html"]
 Minim            [href="http://www.umr-cnrm.fr/gmapdoc/IMG/pdf/ykminim45.pdf"]
