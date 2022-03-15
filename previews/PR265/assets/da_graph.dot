@@ -1,0 +1,159 @@
+digraph Harmonie {
+
+//splines=ortho
+// node[target="_blank"] // All hrefs open in new tab
+//labelloc="t"; fontsize=30;
+//label="Data Assimilation in Harmonie-Arome"
+
+// rank="source"		  
+
+//-------------------------------------------
+//         Tasks
+//-------------------------------------------
+node[shape="rectangle"]  
+Prepare_pgd
+Prepare_ob    
+Boundary_strategy[script="Boundary_strategy.pl"] 
+Bator          // split this in Bator_conv Bator_conv_sfc (and also split scr/Bator)
+Oulan          
+FirstGuess
+Fetch_assim_data
+Interpol_ec_sst
+//Prep_ini_surfex
+Canari      
+Screening    
+Minim          
+Blend
+Forecast       
+//Archive_odb 
+//Archive_host  
+
+
+//------------------------------------------/
+//          Files
+//------------------------------------------/
+node[shape="note"] 
+MXMIN1999p0000      [label="MXMIN1999+0000"]
+ANAB1999p0000       [label="ANAB1999+0000" ]
+ICMSHANALp0000sfx   [label="ICMSHANAL+0000.sfx"]
+ICMSHANALp0000      [label="ICMSHANAL+0000"]
+PREPfa              [label="PREP.fa"]
+bdstrategy_archive  [label="bdstrategy"]       
+VarBC_archive       [label="VarBC.cycle"]
+ECMWF_CANARI_SST_SIC_YYYYMMDD_HH[label="ECMWF_CANARI_SST_SIC_$YYYY$MM$DD_$HH"]
+
+node[type="cylinder"] 
+obYYYYMMDD          [label="observations/ob$YYYYMMDD"]
+OBSOUL              [label="oulan/OBSOUL"]
+odb                 [shape="cylinder"] 
+odb_ccma            [shape="cylinder"]
+odb_can_merge       [shape="cylinder"]
+odbvar              [shape="cylinder"]
+odb_can             [shape="cylinder"]
+odb_can_ori         [shape="cylinder"]
+fc_start            
+first_guess  
+very_first_guess  
+CANARI           
+ECMWF_CANARI_SST_SIC
+first_guess_sfx    
+fc_start_sfx      
+VarBC               [label="VarBC.cycle"]
+bdstrategy       
+
+//node[type=CLIMATEfile]  //these nodes are removed in gvpr/removeCLIMATE
+//ConstClimsfx                    [label="Const.Clim.sfx"]
+//PGD_prelfa                      [label="PGD_prel.fa"]
+//PGD_prellfi                     [label="PGD_prel.lfi"] 
+//PGDlfi                          [label="PGD.lfi"] 
+//ecoclimapII_af_covers_parambin  [label="ecoclimapII_af_covers_param.bin"]
+//ecoclimapII_af_covers_paramdat  [label="ecoclimapII_af_covers_param.dat"]
+//ecoclimapII_eu_covers_parambin  [label="ecoclimapII_eu_covers_param.bin"]
+//ecoclimapII_eu_covers_paramdat  [label="ecoclimapII_eu_covers_param.dat"]
+//ecoclimapI_covers_parambin      [label="ecoclimapI_covers_param.bin"] 
+//ecoclimapI_covers_paramdat      [label="ecoclimapI_covers_param.dat"]  
+//gmted2010dir                    [label="gmted2010.dir"] 
+//gmted2010hdr                    [label="gmted2010.hdr"] 
+//mMM                             [label="m$MM"]
+
+//node[type=CONSTfile] //Split off namelist files?  
+//LISTE_NOIRE_DIAP 
+//LISTE_LOC     
+//stabal96cv          [label="stabal96.cv"]
+//stabal96bal         [label="stabal96.bal"]
+//param_batorcfg      [label="param_bator.cfg"]
+//--------------------------------------------------------
+//             Dependencies (edges) 
+//--------------------------------------------------------
+//                                                                    Prepare_pgd       -> {PGD_prellfi, PGD_prelfa} 
+                                                                    Boundary_strategy -> {bdstrategy_archive}
+                                                                    Prepare_ob        -> {obYYYYMMDD }
+                                                                    Fetch_assim_data  -> {VarBC, stabal96cv, stabal96bal}
+{obYYYYMMDD                                                    } -> Oulan             -> {OBSOUL }
+{bdstrategy                                                    } -> FirstGuess        -> {very_first_guess, first_guess_sfx, first_guess}
+{OBSOUL, obYYYYMMDD                                            } -> Bator             -> {odb, odb_can_ori }
+{bdstrategy                                                    } -> Interpol_ec_sst   -> {ECMWF_CANARI_SST_SIC_YYYYMMDD_HH}
+{first_guess, first_guess_sfx, ECMWF_CANARI_SST_SIC,odb_can_ori} -> Canari            -> {ICMSHANALp0000sfx, ICMSHANALp0000, odb_can, odb_can_merge}
+{first_guess, VarBC, odb                                       } -> Screening         -> {odb_ccma, odbvar, VarBC }
+{odb_ccma, VarBC, first_guess                                  } -> Minim             -> {MXMIN1999p0000, VarBC_archive} 
+{very_first_guess, MXMIN1999p0000                              } -> Blend             -> {ANAB1999p0000 }
+{fc_start, fc_start_sfx                                        } -> Forecast 
+// {odb_ccma, odb_can, odbvar, odb, odb_can_merge                } -> Archive_odb                                    
+
+
+//----------------------------------
+// "Static" input,   namelists, climate files,  etc. 
+//----------------------------------
+  
+{LISTE_NOIRE_DIAP, LISTE_LOC,param_batorcfg } -> Bator
+{stabal96cv, stabal96bal                    } -> Minim
+  
+
+
+
+//---------------------------------------------------------------
+//                   Symlinks
+//---------------------------------------------------------------
+ICMSHANALp0000    -> CANARI         [label="Canari",            style=dashed]
+ICMSHANALp0000sfx -> fc_start_sfx   [label="Canari",            style=dashed]
+ICMSHANALp0000sfx -> first_guess_sfx[label="Canari",            style=dashed, weight=0] //constraint=false]
+ICMSHANALp0000sfx -> PREPfa         [label="Canari",            style=dashed]
+//ICMSHANALp0000    -> first_guess    [label="Canari [LSMIX=T]",  style=dashed, constraint=false]
+//ICMSHANALp0000    -> fc_start       [label="Canari [LSMIX=T]",  style=dashed, constraint=false]
+MXMIN1999p0000    -> fc_start       [label="Minim",             style=dashed, weight=0] // constraint=false]
+ANAB1999p0000     -> first_guess    [label="Blend",             style=dashed, weight=0] // constraint=false]
+ANAB1999p0000     -> fc_start       [label="Blend",             style=dashed]
+bdstrategy_archive-> bdstrategy     [label="Boundary_strategy", style=dashed]  // in Boundary_strategy.sms
+
+// ECMWF_CANARI_SST_SIC is a copy of ECMWF_CANARI_SST_SIC_YYYYMMDD_HH 
+ECMWF_CANARI_SST_SIC_YYYYMMDD_HH ->  ECMWF_CANARI_SST_SIC[label="Interpol_ec_sst (cp)", style=dashed]
+
+//-----------------------------------------------------------------
+//            URL
+//----------------------------------------------------------------
+Prepare_ob       [href="../Observations/ObservationData/index.html"]
+Canari           [href="../DataAssimilation/Surface/CANARI/index.html"]
+Forecast         [href="../ForecastModel/Forecast/index.html"]
+Oulan            [href="../Observations/Oulan/index.html"]
+Bator            [href="../Observations/Bator/index.html"]
+Minim            [href="http://www.umr-cnrm.fr/gmapdoc/IMG/pdf/ykminim45.pdf"]
+Screening        [href="../DataAssimilation/Screening/index.html"]
+Boundary_strategy[href="../Boundaries/BoundaryFilePreparation/index.html"]
+stabal96cv       [href="../DataAssimilation/Structurefunctions/index.html"]
+stabal96bal      [href="../DataAssimilation/Structurefunctions/index.html"]
+// param_batorcfg   [href="../Observations/Bator.md#param.cfg"]
+LISTE_NOIRE_DIAP [href="../Observations/Bator/index.html#LISTE_NOIRE_DIAP-1"]
+LISTE_LOC        [href="../Observations/Bator/index.html#LISTE_LOC-1"] 
+
+// VarBC     [href="https://hirlam.org/trac/browser/trunk/harmonie/const/bias_corr/VARBC.cycle.SUMMER.00"]
+
+//subgraph cluster_legend {
+// fontsize=20; label="Directories"
+// WRKfile    [type=WRKfile,    label="$WRK",    tooltip="$HM_DATA/$YYYY$MM$DD_$HH"]
+// ARCHIVEfile[type=ARCHIVEfile,label="$ARCHIVE",tooltip="$HM_DATA/archive/$YYYY/$MM/$DD/$HH"]
+// CLIMATEfile[type=CLIMATEfile,label="$CLIMDIR",tooltip="$HM_DATA/climate"]
+//}
+
+
+
+}// Digraph Harmonie
