@@ -5,7 +5,7 @@ digraph Harmonie {
 //labelloc="t"; fontsize=30;
 //label="Data Assimilation in Harmonie-Arome"
 
-// rank="source"		  
+// rank="sink"		  
 
 //-------------------------------------------
 //         Tasks
@@ -54,6 +54,7 @@ very_first_guess
 CANARI           
 ECMWF_CANARI_SST_SIC
 first_guess_sfx    
+first_guess_sfx_ln  [label="first_guess_sfx"] 
 fc_start_sfx      
 VarBC               [label="VarBC.cycle"]
 bdstrategy       
@@ -111,13 +112,13 @@ bdstrategy
 //                   Symlinks
 //---------------------------------------------------------------
 ICMSHANALp0000    -> CANARI         [label="Canari",            style=dashed]
-ICMSHANALp0000sfx -> fc_start_sfx   [label="Canari",            style=dashed]
-ICMSHANALp0000sfx -> first_guess_sfx[label="Canari",            style=dashed, weight=0] //constraint=false]
+ICMSHANALp0000sfx -> fc_start_sfx  [label="Canari",            style=dashed]
+ICMSHANALp0000sfx -> first_guess_sfx_ln[label="Canari",            style=dashed]
 ICMSHANALp0000sfx -> PREPfa         [label="Canari",            style=dashed]
 //ICMSHANALp0000    -> first_guess    [label="Canari [LSMIX=T]",  style=dashed, constraint=false]
 //ICMSHANALp0000    -> fc_start       [label="Canari [LSMIX=T]",  style=dashed, constraint=false]
-MXMIN1999p0000    -> fc_start       [label="Minim",             style=dashed, weight=0] // constraint=false]
-bdstrategy_archive-> bdstrategy     [label="Boundary_strategy", style=dashed]  // in Boundary_strategy.sms
+MXMIN1999p0000    -> fc_start       [label="Minim",             style=dashed]
+bdstrategy_archive-> bdstrategy     [label="Boundary_strategy", style=dashed] // in Boundary_strategy.sms
 
 // ECMWF_CANARI_SST_SIC is a copy of ECMWF_CANARI_SST_SIC_YYYYMMDD_HH 
 ECMWF_CANARI_SST_SIC_YYYYMMDD_HH ->  ECMWF_CANARI_SST_SIC[label="Interpol_ec_sst (cp)", style=dashed]
