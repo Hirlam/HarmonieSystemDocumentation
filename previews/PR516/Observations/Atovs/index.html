@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>ATOVS · Harmonie wiki</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-221448594-1"></script><script>  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-221448594-1', {'page_path': location.pathname + location.search + location.hash});
+</script><script data-outdated-warner src="../../assets/warner.js"></script><link rel="canonical" href="https://hirlam.github.io/HarmonieSystemDocumentation/dev/Observations/Atovs/"/><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.045/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.24/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../../"><img src="../../assets/logo.png" alt="Harmonie wiki logo"/></a><div class="docs-package-name"><span class="docs-autofit"><a href="../../">Harmonie wiki</a></span></div><form class="docs-search" action="../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../">Home</a></li><li><span class="tocitem">Getting Started</span><ul><li><a class="tocitem" href="../../System/GitDeveloperDocumentation/">GitHub workflow</a></li><li><a class="tocitem" href="../../Overview/da_graph/">Graphical Overview</a></li><li><a class="tocitem" href="../../System/ECMWF/RunningHarmonieOnAtos/">Running on Atos</a></li><li><input class="collapse-toggle" id="menuitem-2-4" type="checkbox"/><label class="tocitem" for="menuitem-2-4"><span class="docs-label">Overview</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Overview/Content/">Content</a></li><li><a class="tocitem" href="../../Overview/Binaries/">Binaries</a></li><li><a class="tocitem" href="../../Overview/FileFormats/">File Formats</a></li><li><a class="tocitem" href="../../Overview/Source/">Source</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-2-5" type="checkbox"/><label class="tocitem" for="menuitem-2-5"><span class="docs-label">Experiment Configuration</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../ExperimentConfiguration/ConfigureYourExperiment/">Experiment</a></li><li><a class="tocitem" href="../../ExperimentConfiguration/Namelists/">Namelist</a></li><li><a class="tocitem" href="../../ExperimentConfiguration/UseofObservation/">Observations</a></li><li><a class="tocitem" href="../../ExperimentConfiguration/PlatformConfiguration/">Platform</a></li><li><a class="tocitem" href="../../ExperimentConfiguration/How_to_use_hires_topography/">HiRes Topography</a></li><li><a class="tocitem" href="../../ExperimentConfiguration/ModelDomain/">Domain</a></li><li><a class="tocitem" href="../../ExperimentConfiguration/VerticalGrid/">Vertical Grid</a></li></ul></li></ul></li><li><span class="tocitem">NWP Components</span><ul><li><input class="collapse-toggle" id="menuitem-3-1" type="checkbox" checked/><label class="tocitem" for="menuitem-3-1"><span class="docs-label">Observations</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><input class="collapse-toggle" id="menuitem-3-1-1" type="checkbox"/><label class="tocitem" for="menuitem-3-1-1"><span class="docs-label">Preprocessing</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../ObservationPreprocessing/">Preprocessing</a></li><li><a class="tocitem" href="../Oulan/">Oulan</a></li><li><a class="tocitem" href="../Bator/">Bator</a></li><li><a class="tocitem" href="../Cope/">Cope</a></li><li><a class="tocitem" href="../ObservationData/">ObservationData</a></li><li><a class="tocitem" href="../Conrad/">Conrad</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-1-2" type="checkbox" checked/><label class="tocitem" for="menuitem-3-1-2"><span class="docs-label">How to</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../SYNOP/">SYNOP</a></li><li><a class="tocitem" href="../Amv/">AMV</a></li><li><a class="tocitem" href="../Iasi/">IASI</a></li><li class="is-active"><a class="tocitem" href>ATOVS</a><ul class="internal"><li><a class="tocitem" href="#Introduction"><span>Introduction</span></a></li><li><a class="tocitem" href="#ATOVS-radiances"><span>ATOVS radiances</span></a></li><li><a class="tocitem" href="#Variational-bias-correction-and-screening"><span>Variational bias correction and screening</span></a></li><li><a class="tocitem" href="#Source-code"><span>Source code</span></a></li><li><a class="tocitem" href="#Blacklisting"><span>Blacklisting</span></a></li></ul></li><li><a class="tocitem" href="../Scatt/">Scatt</a></li><li><a class="tocitem" href="../Ascat/">AScat</a></li><li><a class="tocitem" href="../GNSS/">GNSS</a></li><li><a class="tocitem" href="../Modes/">Modes</a></li><li><a class="tocitem" href="../RadarData/">Radar</a></li></ul></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-2" type="checkbox"/><label class="tocitem" for="menuitem-3-2"><span class="docs-label">Data Assimilation</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><input class="collapse-toggle" id="menuitem-3-2-1" type="checkbox"/><label class="tocitem" for="menuitem-3-2-1"><span class="docs-label">Surface</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../DataAssimilation/Surface/CANARI/">CANARI</a></li><li><a class="tocitem" href="../../DataAssimilation/Surface/CANARI_OI_MAIN/">CANARI OI MAIN</a></li><li><a class="tocitem" href="../../DataAssimilation/Surface/CANARI_EKF_SURFEX/">CANARI EKF SURFEX</a></li><li><a class="tocitem" href="../../DataAssimilation/Surface/SurfaceAnalysis/">Surface Analysis</a></li></ul></li><li><a class="tocitem" href="../../DataAssimilation/Screening/">Screening</a></li><li><a class="tocitem" href="../../DataAssimilation/StructureFunctions/">Structure functions</a></li><li><a class="tocitem" href="../../DataAssimilation/DataAssimilation4DVAR/">4DVAR</a></li><li><a class="tocitem" href="../../DataAssimilation/DigitalFilterInitialization/">Digital Filter Initialization</a></li><li><a class="tocitem" href="../../DataAssimilation/ObservationOperators/">HOP_DRIVER</a></li><li><a class="tocitem" href="../../DataAssimilation/SingleObs/">Single Obs</a></li><li><a class="tocitem" href="../../DataAssimilation/LSMIXandJk/">LSMIX and Jk</a></li><li><a class="tocitem" href="../../DataAssimilation/DFS/">DFS</a></li><li><a class="tocitem" href="../../DataAssimilation/MTEN/">MTEN</a></li><li><a class="tocitem" href="../../DataAssimilation/CHKEVO/">CHKEVO</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-3" type="checkbox"/><label class="tocitem" for="menuitem-3-3"><span class="docs-label">Boundaries</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Boundaries/BoundaryFilePreparation/">Preparation</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-4" type="checkbox"/><label class="tocitem" for="menuitem-3-4"><span class="docs-label">Forecast Model</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../ForecastModel/Forecast/">Forecast</a></li><li><a class="tocitem" href="../../ForecastModel/Outputlist/">Output List</a></li><li><a class="tocitem" href="../../ForecastModel/HR/">High Res</a></li><li><input class="collapse-toggle" id="menuitem-3-4-4" type="checkbox"/><label class="tocitem" for="menuitem-3-4-4"><span class="docs-label">Single Column Model</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../ForecastModel/SingleColumnModel/MUSC/">MUSC</a></li><li><a class="tocitem" href="../../ForecastModel/SingleColumnModel/Forcing/">Forcing</a></li><li><a class="tocitem" href="../../ForecastModel/SingleColumnModel/MUSC_vars/">MUSC vars</a></li></ul></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-5" type="checkbox"/><label class="tocitem" for="menuitem-3-5"><span class="docs-label">Climate Generation</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../ClimateGeneration/ClimateGeneration/">Climate Generation</a></li><li><a class="tocitem" href="../../ClimateGeneration/DownloadInputData/">Input Data</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-6" type="checkbox"/><label class="tocitem" for="menuitem-3-6"><span class="docs-label">EPS</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../EPS/Howto/">Howto</a></li><li><a class="tocitem" href="../../EPS/System/">System</a></li><li><a class="tocitem" href="../../EPS/BDSTRATEGY/">BDSTRATEGY</a></li><li><a class="tocitem" href="../../EPS/SLAF/">SLAF</a></li><li><a class="tocitem" href="../../EPS/SPP/">SPP</a></li><li><a class="tocitem" href="../../EPS/SPPT/">SPPT</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-7" type="checkbox"/><label class="tocitem" for="menuitem-3-7"><span class="docs-label">Post Processing</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../PostProcessing/Diagnostics/">Diagnostics</a></li><li><a class="tocitem" href="../../PostProcessing/FileConversions/">FileConversions</a></li><li><a class="tocitem" href="../../PostProcessing/Fullpos/">FullPos</a></li><li><a class="tocitem" href="../../PostProcessing/gl/">GL</a></li><li><a class="tocitem" href="../../PostProcessing/xtool/">xtool</a></li><li><a class="tocitem" href="../../PostProcessing/PostPP/">PostPP</a></li><li><a class="tocitem" href="../../PostProcessing/Interpolation/">Interpolation GL</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-8" type="checkbox"/><label class="tocitem" for="menuitem-3-8"><span class="docs-label">Verification</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Verification/Extract4verification/">Extract4verification</a></li><li><a class="tocitem" href="../../Verification/Verification/">Verification</a></li><li><a class="tocitem" href="../../Verification/HARP/">HARP</a></li><li><a class="tocitem" href="../../Verification/Obsmon/">Obsmon</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-9" type="checkbox"/><label class="tocitem" for="menuitem-3-9"><span class="docs-label">Visualization</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Visualization/EPyGrAM/">EpyGram</a></li></ul></li></ul></li><li><span class="tocitem">System</span><ul><li><input class="collapse-toggle" id="menuitem-4-1" type="checkbox"/><label class="tocitem" for="menuitem-4-1"><span class="docs-label">Build</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Build/General/">Software requirements</a></li><li><a class="tocitem" href="../../Build/Build_with_makeup/">Makeup</a></li><li><a class="tocitem" href="../../Build/Build_with_cmake/">CMake</a></li><li><a class="tocitem" href="../../Build/gmkpack/">Gmkpack</a></li><li><a class="tocitem" href="../../Build/Gmkpack_vs_Make/">Gmkpack vs Make</a></li><li><a class="tocitem" href="../../Build/CompileHarmonie/">Compile Harmonie</a></li><li><a class="tocitem" href="../../Build/Installation/">Installation</a></li><li><a class="tocitem" href="../../Build/Redhat7Install/">Redhat7 Install</a></li><li><a class="tocitem" href="../../Build/Centos6Install/">Centos6 Install</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-4-2" type="checkbox"/><label class="tocitem" for="menuitem-4-2"><span class="docs-label">Phasing</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../System/MFaccess/">MF Access</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-4-3" type="checkbox"/><label class="tocitem" for="menuitem-4-3"><span class="docs-label">Suite Management</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../SuiteManagement/ECFLOW/">ECFLOW</a></li></ul></li><li><a class="tocitem" href="../../System/TheHarmonieScript/">The Harmonie script</a></li><li><a class="tocitem" href="../../System/ECMWF/RunningHarmonieOnAtos/">Running on ECMWF&#39;s Atos</a></li><li><a class="tocitem" href="../../System/ReleaseProcess/">Harmonie release process</a></li><li><a class="tocitem" href="../../System/Local/QuickStartLocal/">Local</a></li><li><a class="tocitem" href="../../System/HarmonieTestbed/">Testbed</a></li><li><a class="tocitem" href="../../System/ECMWF/ECMWF_teleport/">Teleport</a></li><li><a class="tocitem" href="../../System/Build_local_docs/">Local Documentation</a></li><li><a class="tocitem" href="../../System/DrHook/">DrHook</a></li><li><a class="tocitem" href="../../System/StandaloneOdb/">Stand alone ODB</a></li><li><a class="tocitem" href="../../System/UpdateNamelists/">Update Namelist</a></li><li><a class="tocitem" href="../../System/Scalability_and_Refactoring/">Scalability and refactoring</a></li><li><a class="tocitem" href="../../System/HarmonieBenchMark/">Benchmark</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">NWP Components</a></li><li><a class="is-disabled">Observations</a></li><li><a class="is-disabled">How to</a></li><li class="is-active"><a href>ATOVS</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>ATOVS</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/Hirlam/Harmonie/blob/dev-CY46h1/docs/src/Observations/Atovs.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="ATOVS-radiances-(pre-)-processing"><a class="docs-heading-anchor" href="#ATOVS-radiances-(pre-)-processing">ATOVS radiances (pre-) processing</a><a id="ATOVS-radiances-(pre-)-processing-1"></a><a class="docs-heading-anchor-permalink" href="#ATOVS-radiances-(pre-)-processing" title="Permalink"></a></h1><h2 id="Introduction"><a class="docs-heading-anchor" href="#Introduction">Introduction</a><a id="Introduction-1"></a><a class="docs-heading-anchor-permalink" href="#Introduction" title="Permalink"></a></h2><p>The IFS/ARPEGE/AROME data assimilation code uses level 1-c radiances. ATOVS radiances are available through local HRPT (High Rate Picture Transmission) antenna and the EUMETSAT EARS (European Advanced Retransmission Service) EUMETCast broadcasting system. Data received through local antenna need to be pre-processed with the ATOVS and AVHRR Pre-processing Package (AAPP). Radiances are also available trough the GTS, but with longer timelines. </p><p>This short description explains how to prepare ATOVS radiances for (operational) data assimilation. Like all radiances, ATOVS data bias is corrected using Variational technique. VarBC coefficients should be updated for each limited area model. The variational bias correction is activated through namelist switches (see below).</p><h2 id="ATOVS-radiances"><a class="docs-heading-anchor" href="#ATOVS-radiances">ATOVS radiances</a><a id="ATOVS-radiances-1"></a><a class="docs-heading-anchor-permalink" href="#ATOVS-radiances" title="Permalink"></a></h2><h3 id="scr/include.ass"><a class="docs-heading-anchor" href="#scr/include.ass">scr/include.ass</a><a id="scr/include.ass-1"></a><a class="docs-heading-anchor-permalink" href="#scr/include.ass" title="Permalink"></a></h3><p><code>src/include.ass</code> should be edited to &quot;switch on&quot; the use of AMSUA (AMSU-A), AMSUB (AMSU-B/MHS):</p><pre><code class="nohighlight hljs">export AMSUA_OBS=1             # AMSU-A
+export AMSUB_OBS=1             # AMSU-B, MHS
+export ATOVS_SOURCE=mars       # local: EUMETCast;
+                               # mars: data from MARS
+                               # hirlam: hirlam radiance template</code></pre><p>The default handling of ATOVS (AMSU-A and AMSU-B/MHS) is so that we store/load them in separate ODB bases. The definition of the bases in Harmonie is done in <code>scr/include.ass</code>.</p><h3 id="Loading-the-ATOVS-radiances"><a class="docs-heading-anchor" href="#Loading-the-ATOVS-radiances">Loading the ATOVS radiances</a><a id="Loading-the-ATOVS-radiances-1"></a><a class="docs-heading-anchor-permalink" href="#Loading-the-ATOVS-radiances" title="Permalink"></a></h3><h4 id="Data-extracted-from-MARS"><a class="docs-heading-anchor" href="#Data-extracted-from-MARS">Data extracted from MARS</a><a id="Data-extracted-from-MARS-1"></a><a class="docs-heading-anchor-permalink" href="#Data-extracted-from-MARS" title="Permalink"></a></h4><ul><li>Data extracted from MARS (the default setting in the Harmonie) is loaded the following way:</li><li>After extraction, all observations, including the radiances, are shuffled per observation type;</li><li>In Bator ATOVS data are loaded from the oulan working directory the following way:</li></ul><pre><code class="nohighlight hljs">        # AMSU-A observations
+      elif [ &quot;$base&quot; = amsua] ; then
+        # AMSU-A
+        if [ &quot;$AMSUA_OBS&quot; -eq 1]; then
+          echo &quot;amsua    BUFR     amsua            ${YMD} ${HH}&quot;&gt;&gt;refdata
+          ln -sf &quot;$WRK&quot;/oulan/amsua ./BUFR.amsua
+          cp &quot;${HM_LIB}&quot;/nam/param_bator.cfg.amsua.&quot;${ATOVS_SOURCE}&quot; ./param.cfg
+        fi
+      elif [ &quot;$base&quot; = amsub] ; then
+        # AMSU-B
+        if [ &quot;$AMSUB_OBS&quot; -eq 1]; then
+          echo &quot;amsub    BUFR     amsub            ${YMD} ${HH}&quot;&gt;&gt;refdata
+          ln -sf &quot;$WRK&quot;/oulan/amsub ./BUFR.amsub
+          cp &quot;${HM_LIB}&quot;/nam/param_bator.cfg.amsub.&quot;${ATOVS_SOURCE}&quot; ./param.cfg
+        fi</code></pre><h4 id="Locally-received-data"><a class="docs-heading-anchor" href="#Locally-received-data">Locally received data</a><a id="Locally-received-data-1"></a><a class="docs-heading-anchor-permalink" href="#Locally-received-data" title="Permalink"></a></h4><ul><li>Locally received (usually through the EARS system) data are loaded the from a source or the &quot;observations&quot; directory. Note, it is recommanded to have both AMSU-B and MHS data in one file. Otherwise, it&#39;s recommanded to create a single file with them. One can use the command &quot;cat&quot; to do this.</li><li>The example below shows a case when AMSU-B and MHS are stored in different BUFR files:<pre><code class="nohighlight hljs">       # AMSU-A observations
+    elif [ &quot;$base&quot; = amsua] ; then
+      # AMSU-A
+      if [ &quot;$AMSUA_OBS&quot; -eq 1]; then
+        echo &quot;amsua    BUFR     amsua            ${YMD} ${HH}&quot;&gt;&gt;refdata
+        #ln -sf &quot;$WRK&quot;/oulan/amsua ./BUFR.amsua
+        ln -sf /scratch/ms/no/sbt/hm_home/RR_CONV/observations/amsua${YMD}${HH} ./BUFR.amsua
+        cp &quot;${HM_LIB}&quot;/nam/param_bator.cfg.amsua.&quot;${ATOVS_SOURCE}&quot; ./param.cfg
+      fi
+    elif [ &quot;$base&quot; = amsub] ; then
+      # AMSU-B
+      if [ &quot;$AMSUB_OBS&quot; -eq 1]; then
+        cat /scratch/ms/no/sbt/hm_home/RR_CONV/observations/amsub${YMD}${HH}  /scratch/ms/no/sbt/hm_home/RR_CONV/observations/mhs${YMD}${HH} &gt; &quot;$WRK&quot;/oulan/amsub
+        echo &quot;amsub    BUFR     amsub            ${YMD} ${HH}&quot;&gt;&gt;refdata
+        ln -sf &quot;$WRK&quot;/oulan/amsub ./BUFR.amsub
+        cp &quot;${HM_LIB}&quot;/nam/param_bator.cfg.amsub.&quot;${ATOVS_SOURCE}&quot; ./param.cfg
+      fi</code></pre></li></ul><h3 id="param.cfg"><a class="docs-heading-anchor" href="#param.cfg"><code>param.cfg</code></a><a id="param.cfg-1"></a><a class="docs-heading-anchor-permalink" href="#param.cfg" title="Permalink"></a></h3><p>The BUFR template used by ATOVS (AMSU-A, AMSU-B/MHS) data should be defined in the <code>param_bator.cfg.${atovs}.${ATOVS_SOURCE}</code> file used by Bator. Where <code>$atovs</code> (amsua or amsua) and <code>ATOVS_SOURCE</code> as defined above according to the source of the data source. <code>param.cfg</code> files for Bator are in the <code>nam</code> namelist directory. The ATOVS <code>param.cfg</code> template should be something like this: For locally processed AMSU-A:</p><pre><code class="nohighlight hljs">BEGIN amsua
+1 1 0 14
+codage     1  310009
+control    1      15  nb de canaux
+values     6  001034  Originating sub-centre
+values     7  001007  Satellite identifier
+values    11  005041  Scan line number
+values    12  005043  Field of view number
+values    22  005001  Latitude
+values    23  006001  Longitude
+values    16  004001  Year
+values    25  007024  Satellite zenith angle
+values    24  007001  Height of station
+values    26  005021  Bearing or azimuth
+values    27  007025  Solar zenith angle
+values    28  005022  Solar azimuth
+values    43  012063  Brightness Temperature
+values    38  002150  Tovs Channel number
+END amsua</code></pre><p>For AMSU-A from MARS:</p><pre><code class="nohighlight hljs">BEGIN amsua
+1 1 0 14
+codage     1  310008
+control    1      15  nb de canaux
+values     6  001034  Originating sub-centre
+values     7  001007  Satellite identifier
+values    11  005041  Scan line number
+values    12  005043  Field of view number
+values    22  005001  Latitude
+values    23  006001  Longitude
+values    16  004001  Year
+values    25  007024  Satellite zenith angle
+values    24  007001  Height of station
+values    26  005021  Bearing or azimuth
+values    27  007025  Solar zenith angle
+values    28  005022  Solar azimuth
+values    43  012063  Brightness Temperature
+values    38  002150  Tovs Channel number
+END amsua</code></pre><p>For locally processed AMSU-B:</p><pre><code class="nohighlight hljs">BEGIN amsub
+1 1 0 15
+codage     1  310010
+control    1       5  nb de canaux
+values     6  001034  Originating sub-centre
+values     7  001007  Satellite identifier
+values    11  005041  Scan line number
+values    12  005043  Field of view number
+values    22  005001  Latitude
+values    23  006001  Longitude
+values    16  004001  Year
+values     8  002048  Satellite sensor type
+values    24  007001  Height of station
+values    25  007024  Satellite zenith angle
+values    26  005021  Bearing or azimuth
+values    27  007025  Solar zenith angle
+values    28  005022  Solar azimuth
+values    38  002150  Tovs Channel number
+values    43  012063  Brightness Temperature
+END amsub</code></pre><p>For AMSU-B from MARS:</p><pre><code class="nohighlight hljs">BEGIN amsub
+1 1 0 15
+codage     1  310008
+control    1       5  nb de canaux
+values     6  001034  Originating sub-centre
+values     7  001007  Satellite identifier
+values    11  005041  Scan line number
+values    12  005043  Field of view number
+values    22  005001  Latitude
+values    23  006001  Longitude
+values    16  004001  Year
+values     8  002048  Satellite sensor type
+values    24  007001  Height of station
+values    25  007024  Satellite zenith angle
+values    26  005021  Bearing or azimuth
+values    27  007025  Solar zenith angle
+values    28  005022  Solar azimuth
+values    38  002150  Tovs Channel number
+values    43  012063  Brightness Temperature
+END amsub</code></pre><h3 id="BATOR-namelist-and-data-extraction"><a class="docs-heading-anchor" href="#BATOR-namelist-and-data-extraction">BATOR namelist and data extraction</a><a id="BATOR-namelist-and-data-extraction-1"></a><a class="docs-heading-anchor-permalink" href="#BATOR-namelist-and-data-extraction" title="Permalink"></a></h3><p>Depending on the satellite and channel you may have to add entries to the NADIRS namelist in the Bator script like the following:</p><pre><code class="nohighlight hljs"> &amp;NADIRS
+   LMFBUFR=.FALSE.,
+   TS_AMSUA(206)%t_select%ChannelsList(:) = -1,
+   TS_AMSUA(206)%t_select%TabFov(:) = -1,
+   TS_AMSUA(206)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUA(207)%t_select%TabFov(:) =  -1,
+   TS_AMSUA(207)%t_select%ChannelsList(:) = -1,
+   TS_AMSUA(207)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUA(209)%t_select%ChannelsList(:) = -1,
+   TS_AMSUA(209)%t_select%TabFov(:) = -1,
+   TS_AMSUA(209)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUA(223)%t_select%ChannelsList(:) = -1,
+   TS_AMSUA(223)%t_select%TabFov(:) = -1,
+   TS_AMSUA(223)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUA(4)%t_select%ChannelsList(:) = -1,
+   TS_AMSUA(4)%t_select%TabFov(:) = -1,
+   TS_AMSUA(4)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUA(3)%t_select%ChannelsList(:) = -1,
+   TS_AMSUA(3)%t_select%TabFov(:) = -1,
+   TS_AMSUA(3)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUA(3)%t_select%SclJump = 0,
+   TS_AMSUA(784)%t_select%TabFov(:) = -1,
+   TS_AMSUA(784)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUB(206)%t_select%TabFov(:) = -1,
+   TS_AMSUB(206)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUB(206)%t_select%SclJump = 0,
+   TS_AMSUB(206)%t_satsens%ModSensor = -1,
+   TS_AMSUB(207)%t_select%TabFov(:) = -1,
+   TS_AMSUB(207)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUB(207)%t_select%SclJump = 0,
+   TS_AMSUB(207)%t_select%ChannelsList(:) = -1,
+   TS_AMSUB(208)%t_select%TabFov(:) = -1,
+   TS_AMSUB(208)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUB(208)%t_select%SclJump = 0,
+   TS_AMSUB(208)%t_select%ChannelsList(:) = -1,
+   TS_AMSUB(209)%t_select%TabFov(:) = -1,
+   TS_AMSUB(209)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUB(209)%t_select%SclJump = 0,
+   TS_AMSUB(209)%t_satsens%ModSensor = 4,
+   TS_AMSUB(209)%t_select%ChannelsList(:) = -1,
+   TS_AMSUB(4)%t_select%TabFov(:) = -1,
+   TS_AMSUB(4)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUB(4)%t_select%SclJump = 0,
+   TS_AMSUB(4)%t_select%ChannelsList(:) = -1,
+   TS_AMSUB(3)%t_select%TabFov(:) = -1,
+   TS_AMSUB(3)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUB(3)%t_select%SclJump = 0,
+   TS_AMSUB(3)%t_satsens%ModSensor = 15,
+   TS_AMSUB(223)%t_select%TabFov(:) = -1,
+   TS_AMSUB(223)%t_select%TabFovInterlace(:) = -1,
+   TS_AMSUB(223)%t_select%SclJump = 0,
+   TS_AMSUB(223)%t_select%ChannelsList(:) = -1,</code></pre><p>All the &quot;-1&quot; mean that we extract all available data we found. No restriction on the channels nor fields of view (FOV), nor on scanning lines (through <code>TS_AMSUB(???)%t_select%SclJump = 0,</code>). The default choices are defined in the routine called <code>src/odb/pandor/module/bator_init_mod.F90</code>. Note that although the NOAA-18 was embarked with MHS instrument, somehow our system treat the NOAA-18 MHS as AMSU-B (implementation decision) <code>TS_AMSUB(209)%t_satsens%ModSensor = 4,</code> is changing the instrument characteristics in our system, while for Metop-A MHS is defined through <code>TS_AMSUB(3)%t_satsens%ModSensor = 15,</code>.</p><h2 id="Variational-bias-correction-and-screening"><a class="docs-heading-anchor" href="#Variational-bias-correction-and-screening">Variational bias correction and screening</a><a id="Variational-bias-correction-and-screening-1"></a><a class="docs-heading-anchor-permalink" href="#Variational-bias-correction-and-screening" title="Permalink"></a></h2><p>The variational technique is used to correct the bias for radiance data in Harmonie. Default choice of predictors used to correct bias for different channels of different instruments is defined in <code>src/arpifs/module/varbc_rad.F90</code> as the example taken for AMSU-B below:</p><pre><code class="nohighlight hljs">DO ic = 2, 5
+  SELECT case (ic)
+  case (2)
+    yconfig(msensor_AMSUB, ic)%nparam = 4
+    yconfig(msensor_AMSUB, ic)%npredcs(1:4) = (/0,8,9,10/)
+  case (3:5)
+    yconfig(msensor_AMSUB, ic)%nparam = 8
+    yconfig(msensor_AMSUB, ic)%npredcs(1:8) = (/0,1,2,5,6,8,9,10/)
+  END SELECT
+ENDDO</code></pre><p>The choice for predictors for VarBC in Harmonie is given through namelist of the screening and minimisation in <code>nam/harmonie_namelist.pm</code> as follows. The update concerns the choice of predictors for each channel of the used instruments and also the <code>nbg</code> (<code>nbg_AMSUA</code>, <code>nbg_AMSUB</code>, <code>nbg_MHS</code>, ...) definition for each instruments. Note that the <code>NBG</code> defines the &quot;speed of the  adaptivity&quot; of the varBC. High value have slowing, while low value have speeding effect:</p><pre><code class="nohighlight hljs"> NAMVARBC=&gt;{
+ },
+ NAMVARBC_RAD=&gt;{
+ &#39;LBC_RAD&#39; =&gt; &#39;.TRUE.,&#39;,
+ &#39;yconfig(3,5)%nparam&#39; =&gt; &#39;10&#39;,
+ &#39;yconfig(3,5)%npredcs(1:10)&#39; =&gt; &#39;0,1,2,8,9,10,15,16,17,18&#39;,
+ &#39;yconfig(3,6)%nparam&#39; =&gt; &#39;5&#39;,
+ &#39;yconfig(3,6)%npredcs(1:5)&#39; =&gt; &#39;0,1,8,9,10&#39;,
+ &#39;yconfig(3,7)%nparam&#39; =&gt; &#39;5&#39;,
+ &#39;yconfig(3,7)%npredcs(1:5)&#39; =&gt; &#39;0,1,8,9,10&#39;,
+ &#39;yconfig(3,8)%nparam&#39; =&gt; &#39;5&#39;,
+ &#39;yconfig(3,8)%npredcs(1:5)&#39; =&gt; &#39;0,1,8,9,10&#39;,
+ &#39;yconfig(3,9)%nparam&#39; =&gt; &#39;5&#39;,
+ &#39;yconfig(3,9)%npredcs(1:5)&#39; =&gt; &#39;0,1,8,9,10&#39;,
+ &#39;yconfig(3,10)%nparam&#39; =&gt; &#39;5&#39;,
+ &#39;yconfig(3,10)%npredcs(1:5)&#39; =&gt; &#39;0,1,8,9,10&#39;,
+ &#39;yconfig(4,2)%nparam&#39; =&gt; &#39;4&#39;,
+ &#39;yconfig(4,2)%npredcs(1:4)&#39; =&gt; &#39;0,8,9,10&#39;,
+ &#39;yconfig(4,3)%nparam&#39; =&gt; &#39;5&#39;,
+ &#39;yconfig(4,3)%npredcs(1:5)&#39; =&gt; &#39;0,1,8,9,10&#39;,
+ &#39;yconfig(4,4)%nparam&#39; =&gt; &#39;5&#39;,
+ &#39;yconfig(4,4)%npredcs(1:5)&#39; =&gt; &#39;0,1,8,9,10&#39;,
+ &#39;yconfig(4,5)%nparam&#39; =&gt; &#39;5&#39;,
+ &#39;yconfig(4,5)%npredcs(1:5)&#39; =&gt; &#39;0,1,8,9,10&#39;,
+ &#39;yconfig(15,2)%nparam&#39; =&gt; &#39;4&#39;,
+ &#39;yconfig(15,2)%npredcs(1:4)&#39; =&gt; &#39;0,8,9,10&#39;,
+ &#39;yconfig(15,3)%nparam&#39; =&gt; &#39;5&#39;,
+ &#39;yconfig(15,3)%npredcs(1:5)&#39; =&gt; &#39;0,1,8,9,10&#39;,
+ &#39;yconfig(15,4)%nparam&#39; =&gt; &#39;5&#39;,
+ &#39;yconfig(15,4)%npredcs(1:5)&#39; =&gt; &#39;0,1,8,9,10&#39;,
+ &#39;yconfig(15,5)%nparam&#39; =&gt; &#39;5&#39;,
+ &#39;yconfig(15,5)%npredcs(1:5)&#39; =&gt; &#39;0,1,8,9,10&#39;,
+ &#39;nbg_AMSUA&#39; =&gt; &#39;2000&#39;,
+ &#39;nbg_AMSUB&#39; =&gt; &#39;2000&#39;,
+ &#39;nbg_MHS&#39; =&gt; &#39;2000&#39;</code></pre><ul><li>Satellite identifiers are available here: [https://software.ecmwf.int/wiki/display/ECC/WMO%3D27+code-flag+table]</li></ul><h2 id="Source-code"><a class="docs-heading-anchor" href="#Source-code">Source code</a><a id="Source-code-1"></a><a class="docs-heading-anchor-permalink" href="#Source-code" title="Permalink"></a></h2><p>The reading of BUFR ATOVS (AMSU-A and AMSU-B/MHS) is taken care of by the subroutines in <code>src/odb/pandor/module/bator_decodbufr_mod.F90</code>. These subroutines read the above parameters defined in the <code>param.cfg</code> file (see above):</p><p>Default values for VarBC are defined in <code>src/arpifs/module/varbc_rad.F90</code>.</p><p>The defined varBC predictors are computed in <code>src/arpifs/module/varbc_pred.F90</code>.</p><h2 id="Blacklisting"><a class="docs-heading-anchor" href="#Blacklisting">Blacklisting</a><a id="Blacklisting-1"></a><a class="docs-heading-anchor-permalink" href="#Blacklisting" title="Permalink"></a></h2><h3 id="Preparation-for-radiance-monitoring"><a class="docs-heading-anchor" href="#Preparation-for-radiance-monitoring">Preparation for radiance monitoring</a><a id="Preparation-for-radiance-monitoring-1"></a><a class="docs-heading-anchor-permalink" href="#Preparation-for-radiance-monitoring" title="Permalink"></a></h3><p>Radiances sensed by polar orbiting satellites like NOAA and Meteop series are accessible differently at different assimilation time for different LAM model. This means that we use these data differently in different Harmonie LAM models. To make the assimilation optimal for our domain, we need to monitor the accessibility of data from different instruments inside our model domain. There are two ways of monitoring the radiance data assimilation:</p><ol><li>we do passive assimilation of the radiances using the assimilation and forecast systems;</li><li>when having forecasts with the system, which we would like to use when assimilating the radiance data, then we can do independent assimilations of radiances with the first guess from the existing mentioned results.</li></ol><h4 id="Monitoring-with-passive-data-assimilation"><a class="docs-heading-anchor" href="#Monitoring-with-passive-data-assimilation">Monitoring with passive data assimilation</a><a id="Monitoring-with-passive-data-assimilation-1"></a><a class="docs-heading-anchor-permalink" href="#Monitoring-with-passive-data-assimilation" title="Permalink"></a></h4><p>There two ways of monitoring the availability and assimilation of polar orbiting-based radiances. In any case we assimilate the radiances in passive way by changing some settings in the <code>src/blacklist/mf_blacklist.b</code> as follows at the end of blacklisting procedure for each instrument. Please read carefully this paragraph until the end before starting your passive experiment. Below is the example for AMSU-A radiances:</p><pre><code class="nohighlight hljs">
+ ...
+! begin passive
+        fail(EXPERIMENTAL);
+! end passive
+
+    endif;   ! SENSOR = AMSUA</code></pre><p>This way we guarantee that the blacklisting rules for active radiances are applied, which is very important when we change to active assimilation.</p><h4 id="Monitoring-using-the-Obsmon-tool"><a class="docs-heading-anchor" href="#Monitoring-using-the-Obsmon-tool">Monitoring using the Obsmon tool</a><a id="Monitoring-using-the-Obsmon-tool-1"></a><a class="docs-heading-anchor-permalink" href="#Monitoring-using-the-Obsmon-tool" title="Permalink"></a></h4><p>To have the all statistics we need when using the <strong>Obsmon</strong> tool, in <code>ecf/config_exp.h</code> set the following:</p><pre><code class="nohighlight hljs"># *** Observation monitoring ***
+OBSMONITOR=obstat               # Create Observation statistics plots</code></pre><p>Note that running the Harmonie system with this option may slow down you monitoring process. Instead, you can run the Obmon separately. More about the Obsmon monitoring tool can be found <a href="../../Verification/Obsmon/">here</a>.</p><h4 id="Cold-start"><a class="docs-heading-anchor" href="#Cold-start">Cold start</a><a id="Cold-start-1"></a><a class="docs-heading-anchor-permalink" href="#Cold-start" title="Permalink"></a></h4><p>This way of monitoring is defined the following way in Harmonie through the <code>scr/include.ass</code>:</p><pre><code class="nohighlight hljs"># Start with empty VARBC coefficients
+export VARBC_COLD_START=yes # yes|no</code></pre><p>In this way <strong>the estimation starts with zero coefficients and we need minimum 20 days</strong> to have the bias for different channels well converging to their nominal values. This is the common practice in Hirlam community, but some studies in LACE showed that warmstart can be advantageous.</p><h4 id="Warm-start"><a class="docs-heading-anchor" href="#Warm-start">Warm start</a><a id="Warm-start-1"></a><a class="docs-heading-anchor-permalink" href="#Warm-start" title="Permalink"></a></h4><p>This way we start with precomputed varBC coefficients from other LAM or from a global model. See the section on &quot;<strong>activating existing varBC coefficients</strong>&quot; below. We set our choice in <code>scr/include.ass</code> the following way:</p><pre><code class="nohighlight hljs"># Start with empty VARBC coefficients
+export VARBC_COLD_START=no # yes|no</code></pre><h4 id="Monitoring-with-independent-analyses-and-without-Obsmon"><a class="docs-heading-anchor" href="#Monitoring-with-independent-analyses-and-without-Obsmon">Monitoring with independent analyses and without Obsmon</a><a id="Monitoring-with-independent-analyses-and-without-Obsmon-1"></a><a class="docs-heading-anchor-permalink" href="#Monitoring-with-independent-analyses-and-without-Obsmon" title="Permalink"></a></h4><p>This solution needs additional playfile, which is not yet implemented in the Harmonie system. The playfile avoid the extraction of the LBCs, execution of the forecast and the post-processing parts of the Harmonie system. On top of the screening and minimization, it takes into account of the archiving part of the odb data.</p><p>Once you have the ODB database after a month of experiment with analyses only, you can extract the the first-gess departures (<code>fg_depar</code>) and the analysis increments (<code>an_depar</code>) using the scripts in <a href="https://hirlam.org/trac/attachment/wiki/HarmonieSystemDocumentation/ObservationHowto/Atovs/For_WW.tar">this tarball</a>. When the extraction is finished, you can compute the statistics using the <a href="https://hirlam.org/trac/attachment/wiki/HarmonieSystemDocumentation/ObservationHowto/Atovs/For_WW2.tar">this tool</a>. Use the script called <code>ExtractOdb_??</code> to extract the departure information. To compute the statistics, use the script called <code>checkbias_??</code>. To plot the final results you can use the R-based scripts in <a href="https://hirlam.org/trac/attachment/wiki/HarmonieSystemDocumentation/ObservationHowto/Atovs/R_Plots.tar">this tarbal</a> file.</p><h4 id="Analysing-the-results"><a class="docs-heading-anchor" href="#Analysing-the-results">Analysing the results</a><a id="Analysing-the-results-1"></a><a class="docs-heading-anchor-permalink" href="#Analysing-the-results" title="Permalink"></a></h4><ul><li>**Using obsmon **</li></ul><p>To check the efficiency of the assimilation of each channel extracted by Bator use the obcmon abd make your choice similar to the example below. Make sure that you have chosen your experiment and set up the period for the whole period of your monitoring.</p><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p>missing image <code>Obsmon_departures_check.png</code></p></div></div><p>Then plotting the results, you should have something similar to the example below:</p><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p>missing image <code>Obsmon_departues_check2.png</code></p></div></div><p>Take note about the channels that behave badly (having large bias an_depar over Land or Sea) at different assimilation time. Note that for AMSU-B and MHS, the observation error is relatively larger than that of the AMSU-A. So, you can allow larger bias than for AMSU-A. See the examples bellow.</p><ul><li>**Not using obsmon **</li></ul><p>The good point of choosing this tool is that the results are more compacted in only few eps-formatted files, which makes the analysis easier than with Obsmon. The analysis procedure is the same.</p><p>When the assimilation of the ATOVS radiances at all assimilation times was checked, then use the blacklisting rules described below to make your final choice for your LAM model with ATOVS.</p><h3 id="Blacklisting-rules"><a class="docs-heading-anchor" href="#Blacklisting-rules">Blacklisting rules</a><a id="Blacklisting-rules-1"></a><a class="docs-heading-anchor-permalink" href="#Blacklisting-rules" title="Permalink"></a></h3><p>Once we have the list of the bad channels for each of the assimilation time you&#39;d like to apply your ATOVS assimilation, the follow the rules described below. Let take the following decision for example. We need to blacklist the channels 5,6,7, 8 from NOAA-18 AMSU-A 12 UTC. How to register the bad channels in the file called LISTE<em>LOC</em>{HH} is described in <a href="https://hirlam.org/trac/attachment/wiki/HarmonieSystemDocumentation/ObservationHowto/Atovs/28_Bp_workshop1n_n_RogerR.ppt">this presentation</a>.</p><p>According to our example, we create the file called <code>LISTE_LOC_12</code> with the following content:</p><pre><code class="nohighlight hljs">N  7 210      209       3 TOVS4       5       6       7       8
+N  7 210      209       3 TOVS5      11      12      13      14      15</code></pre><p>The first line means: N      - blacklist 7      - satem observation 210    - level 1c 209    - NOAA-18 3      - AMSU-A TOVS4  - blacklist 4 channels, which are 5, 6,7 and 8</p><p>Put the <code>LISTE_LOC_$HH</code> files under the <code>nam</code> directory.</p><h3 id="Set-up-the-VarBC-coefficients-for-your-experiment-or-operational-data-assimilation"><a class="docs-heading-anchor" href="#Set-up-the-VarBC-coefficients-for-your-experiment-or-operational-data-assimilation">Set up the VarBC coefficients for your experiment or operational data assimilation</a><a id="Set-up-the-VarBC-coefficients-for-your-experiment-or-operational-data-assimilation-1"></a><a class="docs-heading-anchor-permalink" href="#Set-up-the-VarBC-coefficients-for-your-experiment-or-operational-data-assimilation" title="Permalink"></a></h3><h4 id="For-experiments"><a class="docs-heading-anchor" href="#For-experiments">For experiments</a><a id="For-experiments-1"></a><a class="docs-heading-anchor-permalink" href="#For-experiments" title="Permalink"></a></h4><p>Here we have already the VarBC coefficients, so <strong>we do warm start</strong> (see setup above). her is the procedure:</p><ul><li>Fetch the <code>VARBC.cycle</code> files from the latest <code>odb_stuff.tar</code> for each assimilation time. In case of 3h cycling, we fetch the <code>VARBC.cycle</code> from the latest 8 cycles. Rename them the following way: <code>VARBC.cycle.$DOMAIN.$EMONTH.$HH</code>, where <code>EMONTH</code> can be <code>SUMMER</code> or <code>WINTER</code>. Like for example: <code>VARBC.cycle.AROME_Arctic.SUMMER.12</code>.</li><li>Put these files under <code>const/bias_corr/</code></li></ul><p>These files are arranged this Fetch<em>assim</em>data the following way: For all Hamonie cycles up to 40:</p><pre><code class="nohighlight hljs">     # Fetch data
+       if [ ! -s ${DLOCVARBC}/VARBC.cycle] ; then
+
+         echo &quot;Fetch the data from $HM_LIB/const/bias_corr&quot;
+         # Set the proper VARBC period for coefficients
+         case $MM in
+           10|11|12|01|02|03)
+             EMONTH=WINTER
+           ;;
+           04|05|06|07|08|09)
+             EMONTH=SUMMER
+           ;;
+           *)
+             echo &quot;This should never happen. MM is $MM&quot;
+             exit 1
+         esac
+
+         cp $HM_LIB/const/bias_corr/VARBC.cycle.$DOMAIN.$EMONTH.$HH ${DLOCVARBC}/VARBC.cycle || \
+         { echo &quot;Could not find cold start VARBC data VARBC.cycle.$EMONTH.$HH&quot; ; exit 1 ; }
+              ls -lrt ${DLOCVARBC}
+       fi</code></pre><p>From cycle 43:</p><pre><code class="nohighlight hljs">     # Fetch data
+       if [ ! -s ${DLOCVARBC}/VARBC.cycle] ; then
+
+         echo &quot;Fetch the data from $HM_LIB/const/bias_corr&quot;
+         # Set the proper VARBC period for coefficients
+         case $MM in
+           10|11|12|01|02|03)
+             EMONTH=WINTER
+           ;;
+           04|05|06|07|08|09)
+             EMONTH=SUMMER
+           ;;
+           *)
+             echo &quot;This should never happen. MM is $MM&quot;
+             exit 1
+         esac
+
+         cp $HM_LIB/const/bias_corr/${DOMAIN}/VARBC.cycle.$HH ${DLOCVARBC}/VARBC.cycle || \
+         { echo &quot;Could not find cold start VARBC data VARBC.cycle.$EMONTH.$HH&quot; ; exit 1 ; }
+              ls -lrt ${DLOCVARBC}
+       fi</code></pre><p>With a tiny difference that all the VarBC files are now stored under a <code>${DOMAIN}</code> directory. This allows our system to be up-to-date and ready for all known model domains. Please send your VarBC files to the system administrators.</p><h4 id="For-operational-implementation"><a class="docs-heading-anchor" href="#For-operational-implementation">For operational implementation</a><a id="For-operational-implementation-1"></a><a class="docs-heading-anchor-permalink" href="#For-operational-implementation" title="Permalink"></a></h4><p>The setup is much easier. Name the <code>VARBC.cycle</code> files the following way <code>VARBC.cycle.${HH}</code> and put them in <code>$ARCHIVE_ROOT/VARBC_latest</code>, which you need to create.</p><p>To check that you have done things right:</p><ul><li><p>Doing experiment: Check that you have all <code>LISTE_LOC_$HH</code> files under the <code>nam</code> directory, and the <code>VARBC.cycle.$DOMAIN.$EMONTH.$HH</code> files under <code>const/bias_corr</code> directory.</p></li><li><p>Operational implementation: Check that you have all <code>LISTE_LOC_$HH</code> files under the <code>nam</code> directory, and the <code>VARBC.cycle.$HH</code> under the <code>$ARCHIVE_ROOT/VARBC_latest</code> directory.</p></li></ul><p>If you passed the test, then <strong>you are ready</strong> with ATOVS implementation. Congratulation!</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../Iasi/">« IASI</a><a class="docs-footer-nextpage" href="../Scatt/">Scatt »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.23 on <span class="colophon-date" title="Friday 18 November 2022 07:41">Friday 18 November 2022</span>. Using Julia version 1.6.7.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
