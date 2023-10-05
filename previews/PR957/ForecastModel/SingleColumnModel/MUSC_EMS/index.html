@@ -9,8 +9,8 @@ GHUSER=your_github_username
 git clone git@github.com:$GHUSER/Harmonie.git harmonie_git/$GHUSER/dev-CY46h1 -b dev-CY46h1
 
 (Ensure that your fork is up-to-date before doing this or else take the code from the main
-CY46 repo. Note that to run GABLS1 you need to use two updated surfex subroutines tszo.F90
-and read_pgd_tsz0_parn.F90).
+CY46 repo. Note that to run GABLS1 you need to use two updated surfex subroutines `tszo.F90`
+and `read_pgd_tsz0_parn.F90`).
 </code></pre><p>Compile the code in your code checkout/copy:</p><pre><code class="language-shell hljs">cd $PERM/harmonie_git/$GHUSER/dev-CY46h1
 EXP=$(basename $(git symbolic-ref --short HEAD))
 . config-sh/config.ubuntu20_nompi
@@ -25,11 +25,14 @@ export EMS_DIR=$HOME/metapp/ems
 cmake .. -DCMAKE_INSTALL_PREFIX=$EMS_DIR &amp;&amp; make &amp;&amp; ctest &amp;&amp; make install
 export PATH=${EMS_DIR}/bin:$PATH
 export PYTHONPATH=${EMS_DIR}
-(Note that for GABLS1 in prep_nam_sfx.py_orig the following lines need to be
-commented out:
-nam[nn][&#39;XUNIF_CLAY&#39;] = [&#39;1.&#39;]
-nam[nn][&#39;XUNIF_SAND&#39;] = [&#39;0.&#39;]
-nam[nn][&#39;XUNIF_RUNOFFB&#39;] = [&#39;0.5&#39;])</code></pre><h2 id="Run-EMS"><a class="docs-heading-anchor" href="#Run-EMS">Run EMS</a><a id="Run-EMS-1"></a><a class="docs-heading-anchor-permalink" href="#Run-EMS" title="Permalink"></a></h2><p>Here are some instructions on how to use EMS to execute idealised cases</p><pre><code class="language-shell hljs">export EMS_DIR=$HOME/metapp/ems
+!!! note 
+    For GABLS1 in `prep_nam_sfx.py_orig` the following lines need to be commented out:
+    
+    ```
+    nam[nn][&#39;XUNIF_CLAY&#39;] = [&#39;1.&#39;]
+    nam[nn][&#39;XUNIF_SAND&#39;] = [&#39;0.&#39;]
+    nam[nn][&#39;XUNIF_RUNOFFB&#39;] = [&#39;0.5&#39;]
+    ```</code></pre><h2 id="Run-EMS"><a class="docs-heading-anchor" href="#Run-EMS">Run EMS</a><a id="Run-EMS-1"></a><a class="docs-heading-anchor-permalink" href="#Run-EMS" title="Permalink"></a></h2><p>Here are some instructions on how to use EMS to execute idealised cases</p><pre><code class="language-shell hljs">export EMS_DIR=$HOME/metapp/ems
 export PATH=${EMS_DIR}/bin:$PATH
 export PYTHONPATH=${EMS_DIR}
 mkdir $HOME/ems_exec
@@ -49,4 +52,4 @@ cd $HOME/Atlas
 mkdir config
 cp $HOME/SCM-atlas_git/ewhelan/hirlam/examples/config/config_HARM.py config/
 ### edit config/config_HARM.py
-run_atlas1d.py -config config/config_HARM.py</code></pre><section class="footnotes is-size-7"><ul><li class="footnote" id="footnote-1"><a class="tag is-link" href="#citeref-1">1</a>Issue with SURFEX namelist</li><li class="footnote" id="footnote-2"><a class="tag is-link" href="#citeref-2">2</a>Python issue L241 <code>$EMS_DIR/ems/prep_init_forc_atm_GMAP.py</code></li><li class="footnote" id="footnote-3"><a class="tag is-link" href="#citeref-3">3</a>Missing <code>data_input.nc</code> </li></ul></section></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../Forcing/">« Forcing</a><a class="docs-footer-nextpage" href="../MUSC_vars/">MUSC vars »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="auto">Automatic (OS)</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.0.1 on <span class="colophon-date" title="Thursday 5 October 2023 11:50">Thursday 5 October 2023</span>. Using Julia version 1.9.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+run_atlas1d.py -config config/config_HARM.py</code></pre><section class="footnotes is-size-7"><ul><li class="footnote" id="footnote-1"><a class="tag is-link" href="#citeref-1">1</a>Issue with SURFEX namelist</li><li class="footnote" id="footnote-2"><a class="tag is-link" href="#citeref-2">2</a>Python issue L241 <code>$EMS_DIR/ems/prep_init_forc_atm_GMAP.py</code></li><li class="footnote" id="footnote-3"><a class="tag is-link" href="#citeref-3">3</a>Missing <code>data_input.nc</code> </li></ul></section></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../Forcing/">« Forcing</a><a class="docs-footer-nextpage" href="../MUSC_vars/">MUSC vars »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="auto">Automatic (OS)</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.0.1 on <span class="colophon-date" title="Thursday 5 October 2023 13:55">Thursday 5 October 2023</span>. Using Julia version 1.9.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
