@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Namelist · Harmonie wiki</title><meta name="title" content="Namelist · Harmonie wiki"/><meta property="og:title" content="Namelist · Harmonie wiki"/><meta property="twitter:title" content="Namelist · Harmonie wiki"/><meta name="description" content="Documentation for Harmonie wiki."/><meta property="og:description" content="Documentation for Harmonie wiki."/><meta property="twitter:description" content="Documentation for Harmonie wiki."/><meta property="og:url" content="https://hirlam.github.io/HarmonieSystemDocumentation/dev/ExperimentConfiguration/Namelists/"/><meta property="twitter:url" content="https://hirlam.github.io/HarmonieSystemDocumentation/dev/ExperimentConfiguration/Namelists/"/><link rel="canonical" href="https://hirlam.github.io/HarmonieSystemDocumentation/dev/ExperimentConfiguration/Namelists/"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HQ1BCP3LPJ"></script><script>  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HQ1BCP3LPJ', {'page_path': location.pathname + location.search + location.hash});
+</script><script data-outdated-warner src="../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../search_index.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../../"><img src="../../assets/logo.png" alt="Harmonie wiki logo"/></a><div class="docs-package-name"><span class="docs-autofit"><a href="../../">Harmonie wiki</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../../">Home</a></li><li><span class="tocitem">Getting Started</span><ul><li><a class="tocitem" href="../../System/GitDeveloperDocumentation/">GitHub workflow</a></li><li><a class="tocitem" href="../../Overview/da_graph/">Graphical Overview</a></li><li><a class="tocitem" href="../../System/ECMWF/RunningHarmonieOnAtos/">Running on Atos</a></li><li><input class="collapse-toggle" id="menuitem-2-4" type="checkbox"/><label class="tocitem" for="menuitem-2-4"><span class="docs-label">Overview</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Overview/Content/">Content</a></li><li><a class="tocitem" href="../../Overview/Binaries/">Binaries</a></li><li><a class="tocitem" href="../../Overview/FileFormats/">File Formats</a></li><li><a class="tocitem" href="../../Overview/Source/">Source</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-2-5" type="checkbox" checked/><label class="tocitem" for="menuitem-2-5"><span class="docs-label">Experiment Configuration</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../ConfigureYourExperiment/">Experiment</a></li><li class="is-active"><a class="tocitem" href>Namelist</a><ul class="internal"><li><a class="tocitem" href="#Introduction"><span>Introduction</span></a></li><li><a class="tocitem" href="#harmone_namelists.pm"><span>harmone_namelists.pm</span></a></li><li><a class="tocitem" href="#surfex_namelists.pm"><span><code>surfex_namelists.pm</code></span></a></li><li><a class="tocitem" href="#surfex_selected_output.pm"><span><code>surfex_selected_output.pm</code></span></a></li><li><a class="tocitem" href="#Change-your-namelists"><span>Change your namelists</span></a></li></ul></li><li><a class="tocitem" href="../UseofObservation/">Observations</a></li><li><a class="tocitem" href="../PlatformConfiguration/">Platform</a></li><li><a class="tocitem" href="../How_to_use_hires_topography/">HiRes Topography</a></li><li><a class="tocitem" href="../ModelDomain/">Domain</a></li><li><a class="tocitem" href="../VerticalGrid/">Vertical Grid</a></li></ul></li></ul></li><li><span class="tocitem">NWP Components</span><ul><li><input class="collapse-toggle" id="menuitem-3-1" type="checkbox"/><label class="tocitem" for="menuitem-3-1"><span class="docs-label">Observations</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><input class="collapse-toggle" id="menuitem-3-1-1" type="checkbox"/><label class="tocitem" for="menuitem-3-1-1"><span class="docs-label">Preprocessing</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Observations/ObservationPreprocessing/">Preprocessing</a></li><li><a class="tocitem" href="../../Observations/Oulan/">Oulan</a></li><li><a class="tocitem" href="../../Observations/Bator/">Bator</a></li><li><a class="tocitem" href="../../Observations/Cope/">Cope</a></li><li><a class="tocitem" href="../../Observations/ObservationData/">ObservationData</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-1-2" type="checkbox"/><label class="tocitem" for="menuitem-3-1-2"><span class="docs-label">How to</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Observations/SYNOP/">SYNOP</a></li><li><a class="tocitem" href="../../Observations/Amv/">AMV</a></li><li><a class="tocitem" href="../../Observations/Atovs/">ATOVS</a></li><li><a class="tocitem" href="../../Observations/Iasi/">IASI</a></li><li><a class="tocitem" href="../../Observations/Seviri/">SEVIRI</a></li><li><a class="tocitem" href="../../Observations/Scatt/">Scatt</a></li><li><a class="tocitem" href="../../Observations/Ascat/">AScat</a></li><li><a class="tocitem" href="../../Observations/GNSS/">GNSS</a></li><li><a class="tocitem" href="../../Observations/Modes/">Modes</a></li><li><a class="tocitem" href="../../Observations/RadarData/">Radar</a></li><li><a class="tocitem" href="../../Observations/Aeolus/">Aeolus</a></li></ul></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-2" type="checkbox"/><label class="tocitem" for="menuitem-3-2"><span class="docs-label">Data Assimilation</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><input class="collapse-toggle" id="menuitem-3-2-1" type="checkbox"/><label class="tocitem" for="menuitem-3-2-1"><span class="docs-label">Surface</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../DataAssimilation/Surface/CANARI/">CANARI</a></li><li><a class="tocitem" href="../../DataAssimilation/Surface/CANARI_OI_MAIN/">CANARI OI MAIN</a></li><li><a class="tocitem" href="../../DataAssimilation/Surface/CANARI_EKF_SURFEX/">CANARI EKF SURFEX</a></li><li><a class="tocitem" href="../../DataAssimilation/Surface/SurfaceAnalysis/">Surface Analysis</a></li></ul></li><li><a class="tocitem" href="../../DataAssimilation/Screening/">Screening</a></li><li><a class="tocitem" href="../../DataAssimilation/StructureFunctions/">Structure functions</a></li><li><a class="tocitem" href="../../DataAssimilation/DaAlgorithms/">Algorithms</a></li><li><a class="tocitem" href="../../DataAssimilation/DigitalFilterInitialization/">Digital Filter Initialization</a></li><li><a class="tocitem" href="../../DataAssimilation/ObservationOperators/">HOP_DRIVER</a></li><li><a class="tocitem" href="../../DataAssimilation/SingleObs/">Single Obs</a></li><li><a class="tocitem" href="../../DataAssimilation/LSMIXandJk/">LSMIX and Jk</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-3" type="checkbox"/><label class="tocitem" for="menuitem-3-3"><span class="docs-label">Diagnostics</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><input class="collapse-toggle" id="menuitem-3-3-1" type="checkbox"/><label class="tocitem" for="menuitem-3-3-1"><span class="docs-label">Data Assimilation</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../DataAssimilation/DFS/">DFS</a></li><li><a class="tocitem" href="../../DataAssimilation/MTEN/">MTEN</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-3-2" type="checkbox"/><label class="tocitem" for="menuitem-3-3-2"><span class="docs-label">Forecast(spin-up)</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../DataAssimilation/CHKEVO/">CHKEVO</a></li><li><a class="tocitem" href="../../DataAssimilation/NWECHKEVO/">NWECHKEVO</a></li></ul></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-4" type="checkbox"/><label class="tocitem" for="menuitem-3-4"><span class="docs-label">Boundaries</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Boundaries/BoundaryFilePreparation/">Preparation</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-5" type="checkbox"/><label class="tocitem" for="menuitem-3-5"><span class="docs-label">Forecast Model</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../ForecastModel/Forecast/">Forecast</a></li><li><a class="tocitem" href="../../ForecastModel/ForecastSettings/">Settings</a></li><li><a class="tocitem" href="../../ForecastModel/Outputlist/">Output List</a></li><li><a class="tocitem" href="../../ForecastModel/HR/">High Res</a></li><li><input class="collapse-toggle" id="menuitem-3-5-5" type="checkbox"/><label class="tocitem" for="menuitem-3-5-5"><span class="docs-label">Single Column Model</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../ForecastModel/SingleColumnModel/MUSC/">MUSC</a></li><li><a class="tocitem" href="../../ForecastModel/SingleColumnModel/Forcing/">Forcing</a></li><li><a class="tocitem" href="../../ForecastModel/SingleColumnModel/MUSC_EMS/">MUSC EMS</a></li><li><a class="tocitem" href="../../ForecastModel/SingleColumnModel/MUSC_vars/">MUSC vars</a></li></ul></li><li><a class="tocitem" href="../../ForecastModel/WindFarms/">Wind Farm Parameterisation</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-6" type="checkbox"/><label class="tocitem" for="menuitem-3-6"><span class="docs-label">Climate Generation</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../ClimateGeneration/ClimateGeneration/">Climate Generation</a></li><li><a class="tocitem" href="../../ClimateGeneration/DownloadInputData/">Input Data</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-7" type="checkbox"/><label class="tocitem" for="menuitem-3-7"><span class="docs-label">EPS</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../EPS/Howto/">Howto</a></li><li><a class="tocitem" href="../../EPS/System/">System</a></li><li><a class="tocitem" href="../../EPS/BDSTRATEGY/">BDSTRATEGY</a></li><li><a class="tocitem" href="../../EPS/SLAF/">SLAF</a></li><li><a class="tocitem" href="../../EPS/SPP/">SPP</a></li><li><a class="tocitem" href="../../EPS/SPPT/">SPPT</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-8" type="checkbox"/><label class="tocitem" for="menuitem-3-8"><span class="docs-label">Post Processing</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../PostProcessing/Diagnostics/">Diagnostics</a></li><li><a class="tocitem" href="../../PostProcessing/FileConversions/">FileConversions</a></li><li><a class="tocitem" href="../../PostProcessing/Fullpos/">FullPos</a></li><li><a class="tocitem" href="../../PostProcessing/gl/">GL</a></li><li><a class="tocitem" href="../../PostProcessing/xtool/">xtool</a></li><li><a class="tocitem" href="../../PostProcessing/Interpolation/">Interpolation GL</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-9" type="checkbox"/><label class="tocitem" for="menuitem-3-9"><span class="docs-label">Verification</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Verification/Extract4verification/">Extract4verification</a></li><li><a class="tocitem" href="../../Verification/Verification/">Verification</a></li><li><a class="tocitem" href="../../Verification/HARP/">HARP</a></li><li><a class="tocitem" href="../../Verification/Obsmon/">Obsmon</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3-10" type="checkbox"/><label class="tocitem" for="menuitem-3-10"><span class="docs-label">Visualization</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Visualization/EPyGrAM/">EpyGram</a></li></ul></li></ul></li><li><span class="tocitem">System</span><ul><li><input class="collapse-toggle" id="menuitem-4-1" type="checkbox"/><label class="tocitem" for="menuitem-4-1"><span class="docs-label">Build</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../Build/Build_with_cmake/">CMake</a></li><li><a class="tocitem" href="../../Build/Build_with_makeup/">Makeup</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-4-2" type="checkbox"/><label class="tocitem" for="menuitem-4-2"><span class="docs-label">Phasing</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../System/MFaccess/">MF Access</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-4-3" type="checkbox"/><label class="tocitem" for="menuitem-4-3"><span class="docs-label">Suite Management</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../SuiteManagement/ECFLOW/">ECFLOW</a></li></ul></li><li><a class="tocitem" href="../../System/TheHarmonieScript/">The Harmonie script</a></li><li><a class="tocitem" href="../../System/ECMWF/RunningHarmonieOnAtos/">Running on ECMWF&#39;s Atos</a></li><li><a class="tocitem" href="../../System/ReleaseProcess/">Harmonie release process</a></li><li><a class="tocitem" href="../../System/Local/QuickStartLocal/">Local</a></li><li><a class="tocitem" href="../../System/HarmonieTestbed/">Testbed</a></li><li><a class="tocitem" href="../../System/ECMWF/ECMWF_teleport/">Teleport</a></li><li><a class="tocitem" href="../../System/Build_local_docs/">Local Documentation</a></li><li><a class="tocitem" href="../../System/DrHook/">DrHook</a></li><li><a class="tocitem" href="../../System/StandaloneOdb/">Stand alone ODB</a></li><li><a class="tocitem" href="../../System/UpdateNamelists/">Update Namelist</a></li></ul></li><li><a class="tocitem" href="../../references/">References</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Getting Started</a></li><li><a class="is-disabled">Experiment Configuration</a></li><li class="is-active"><a href>Namelist</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Namelist</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/Hirlam/Harmonie" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/Hirlam/Harmonie/blob/dev-CY46h1/docs/src/ExperimentConfiguration/Namelists.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="namelists"><a class="docs-heading-anchor" href="#namelists">Controlling the namelists in HARMONIE</a><a id="namelists-1"></a><a class="docs-heading-anchor-permalink" href="#namelists" title="Permalink"></a></h1><h2 id="Introduction"><a class="docs-heading-anchor" href="#Introduction">Introduction</a><a id="Introduction-1"></a><a class="docs-heading-anchor-permalink" href="#Introduction" title="Permalink"></a></h2><p>IFS is largely driven by namelists and has thousands of options. For each configuration a number of namelists controlling different parts are read. To make the maintenance of the namelists manageable and to assure consistency in terms on e.g. name conventions for fields, packing accuracy, physics settings and parallel options all namelists are generated as they are needed during the run. All the basic settings are defined in a perl dictionary <code>nam/harmonie_namelists.pm</code> for IFS and <code>nam/surfex_namelists.pm</code> and <code>nam/surfex_selected_output.pm</code> for SURFEX. In future versions the commented namelists will be included and maintained as part of the code.   The IFS dictionary is structured in several sections:</p><h2 id="harmone_namelists.pm"><a class="docs-heading-anchor" href="#harmone_namelists.pm">harmone_namelists.pm</a><a id="harmone_namelists.pm-1"></a><a class="docs-heading-anchor-permalink" href="#harmone_namelists.pm" title="Permalink"></a></h2><ul><li><p>Global settings</p></li><li><p>Technical settings</p><ul><li>Host specific settings</li><li>MPP options</li><li>File settings</li></ul></li><li><p>DYNAMICS SETTINGS</p><ul><li>Main dynamics switches</li><li>Non-hydrostatic settings</li><li>Vertical finite element</li><li>DFI</li></ul></li><li><p>Main physics options. NB! These may contain switches for dynamics as well</p><ul><li>ALADIN</li><li>AROME</li><li>EDMFM switches, to be applied after AROME</li><li>Alaro</li><li>Old surface</li><li>SURFEX</li><li>DDH</li></ul></li><li><p>E927 Interpolation settings</p><ul><li>Main fullpos settings</li><li>E927</li><li>E927 nh</li><li>SURFEX initial file generation</li><li>Aladin e927</li><li>ALARO e927</li><li>Arome e927</li></ul></li><li><p>General postprocessing switches </p><ul><li>Default fullpos settings</li><li>NH postprocessing</li><li>Switches for postprocessing with surfex</li><li>Special cases for arome</li></ul></li><li><p>Assimilation</p><ul><li>Canari<ul><li>Arome canari</li></ul></li><li>Varbc_rad</li><li>Varbc_coldstart</li><li>Screening<ul><li>Arome screening</li><li>Alaro screening</li></ul></li><li>Minimization<ul><li>Alaro minimization</li></ul></li><li>4DVAR <ul><li>4DVAR minimization</li><li>4DVAR screening</li><li>4DVAR trajectory</li></ul></li></ul></li><li><p>Climate generation</p><ul><li>Climate generations (e923)</li></ul></li><li><p>Misc</p><ul><li>General namelist settings for Tangent-Linear and Adjoint tests </li><li>Extra Adjoint test options </li><li>Oulan</li><li>Bator</li></ul></li></ul><p>The final namelists are build through the rules given in <code>scr/Get_namelist</code> and are generated by <code>nam/gen_namelists.pl</code>. Note that in several cases environment variables are still parsed in the scripts.</p><h2 id="surfex_namelists.pm"><a class="docs-heading-anchor" href="#surfex_namelists.pm"><code>surfex_namelists.pm</code></a><a id="surfex_namelists.pm-1"></a><a class="docs-heading-anchor-permalink" href="#surfex_namelists.pm" title="Permalink"></a></h2><p>All possible SURFEX namelist setting are documented at the <a href="http://www.cnrm-game-meteo.fr/surfex">SURFEX web site</a>. Use the search text area in the upper right corner to search for a specific namelist or namelist option. Please, keep in mind that the SURFEX web site documents the latest SURFEX version, i.e. SURFEXv8, while in cy40h SURFEXv7.3 is used. Therefore, some of the settings may be different or not available.</p><h3 id="PGD"><a class="docs-heading-anchor" href="#PGD">PGD</a><a id="PGD-1"></a><a class="docs-heading-anchor-permalink" href="#PGD" title="Permalink"></a></h3><p>PGD represents in general the preparation of physiography data. The default PGD settings are listed here. Some modifications can be done for specific model configurations and will be specified as e.g. <code>alaro_pgd</code> or <code>arome_pgd</code>.</p><pre><code class="language-bash hljs"># 2 layer ISBA scheme
+%isba_2L=(
+ NAM_ISBA=&gt;{
+  CISBA          =&gt; &#39;&quot;2-L&quot;,&#39;,
+  NGROUND_LAYER  =&gt; &#39;2,&#39;,
+ },
+);
+
+# 3 layer ISBA scheme
+%isba_3L=(
+ NAM_ISBA=&gt;{
+  CISBA          =&gt; &#39;&quot;3-L&quot;,&#39;,
+  NGROUND_LAYER  =&gt; &#39;3,&#39;,
+ },
+);</code></pre><p>The section used here is decided by setting <code>CISBA=&quot;3-L&quot;</code> (default) in <a href="../ConfigureYourExperiment/#configure-your-experiment">config_exp.h</a>.</p><pre><code class="language-bash hljs">%isba_pgd=(
+ NAM_ISBA=&gt;{
+   YCLAY         =&gt; &#39;YCLAY,&#39;,
+   YCLAYFILETYPE =&gt; &#39;&quot;DIRECT&quot;,&#39; ,
+   YSAND         =&gt; &#39;YSAND,&#39;,
+   YSANDFILETYPE =&gt; &#39;&quot;DIRECT&quot;,&#39;
+ },
+);</code></pre><p>The clay/sand used is decided by setting <code>SOIL_TEXTURE_VERSION=FAO</code> (default) in <code>config_exp.h</code>. <code>FAO</code> corresponds to 10 km resolution clay/sand according to <a href="http://www.cnrm-game-meteo.fr/surfex//spip.php?article135">SURFEX Soil texture description</a>. The 1 km <code>HWSD_v2</code> is not used by default since is shows strange vales over Scandinavia.</p><pre><code class="language-perl hljs">%pgd=(
+ NAM_IO_OFFLINE=&gt;{
+  CSURF_FILETYPE =&gt; &#39;CSURF_FILETYPE,&#39;,
+   CPGDFILE      =&gt; &#39;CPGDFILE,&#39;,
+ },
+ NAM_PGD_GRID=&gt;{
+   CGRID         =&gt; &#39;&quot;CONF PROJ&quot;,&#39;,
+ },
+ NAM_CONF_PROJ=&gt;{
+   XLAT0         =&gt; $ENV{LAT0},
+   XLON0         =&gt; $ENV{LON0},
+   XRPK          =&gt; $ENV{SINLAT0},
+   XBETA         =&gt; 0.0,
+ },
+ NAM_CONF_PROJ_GRID=&gt;{
+   XLATCEN       =&gt; $ENV{LATC},
+   XLONCEN       =&gt; $ENV{LONC},
+   NIMAX         =&gt; &#39;BNIMAX,&#39;,
+   NJMAX         =&gt; &#39;BNJMAX,&#39;,
+   XDX           =&gt; &#39;BXDX,&#39;, 
+   XDY           =&gt; &#39;BXDY,&#39;,
+ },
+ NAM_COVER=&gt; {
+   YCOVER        =&gt; &#39;YCOVER,&#39;,
+   YCOVERFILETYPE=&gt; &#39;&quot;DIRECT&quot;,&#39;,
+ },
+ NAM_ZS=&gt;{
+   YZS           =&gt; &#39;YTOPO,&#39;,
+   YZSFILETYPE   =&gt; &#39;&quot;DIRECT&quot;,&#39;,
+ },
+ NAM_SEABATHY=&gt;{
+   XUNIF_SEABATHY=&gt;&#39;0.,&#39;, 
+ },
+ NAM_PGD_SCHEMES=&gt;{
+    CNATURE =&gt; &#39;&quot;ISBA &quot;,&#39;,
+    CSEA    =&gt; &#39;&quot;SEAFLX&quot;,&#39;,
+    CWATER  =&gt; &#39;&quot;WATFLX&quot;,&#39;,
+    CTOWN   =&gt; &#39;&quot;TEB &quot;,&#39;,
+ },
+);</code></pre><p>Most options here are specified in different scripts and are normally not supposed to be modified. Exceptions are e.g.</p><ul><li>ECOCLIMAP version used (YCOVER) is decided by setting <code>ECOCLIMAP_VERSION=2.2</code> (default) in <code>config_exp.h</code>. Available ECOCLIMAP versions provided via the SURFEX team are documented in <a href="http://www.cnrm-game-meteo.fr/surfex//spip.php?article136">SURFEX Land use description</a>. Some of these can be available on your system, see your <code>$HM_CLDATA</code> setting.</li><li>Orography version used (YTOPO) is decided by setting <code>TOPO_SOURCE=gmted2010</code> (default) in <a href="../ConfigureYourExperiment/#configure-your-experiment"><code>config_exp.h</code></a>.</li></ul><h3 id="PREP"><a class="docs-heading-anchor" href="#PREP">PREP</a><a id="PREP-1"></a><a class="docs-heading-anchor-permalink" href="#PREP" title="Permalink"></a></h3><p>PREP represents in general initialisation of prognostic variables. The default PREP settings are listed here. Some modifications can be done for specific model configurations and will be specified as e.g. <code>alaro_prep</code> or <code>arome_prep</code>.</p><pre><code class="language-perl hljs">%sice_prep=(
+ NAM_SEAFLUXn=&gt;{
+    LHANDLE_SIC            =&gt;&#39;.TRUE.,&#39;,
+    LSIC_FROM_FILE         =&gt;&#39;.TRUE.,&#39;,
+    CSEA_ICE               =&gt;&#39;&quot;SICE&quot;,&#39;,
+    NICE_LAYER             =&gt;&#39;4,&#39;,
+ },
+ NAM_PREP_SEAFLUX=&gt;{
+    CFILE_SIC           =&gt;&#39;&quot;CFILE_SIC&quot;,&#39;,
+    CTYPE_SIC           =&gt;&#39;&quot;GRIB  &quot;&#39;,
+ },
+ NAM_SIMPLE_ICE=&gt;{
+    XICE_THICKNESS      =&gt;&#39;.75,&#39;,
+    LICE_HAS_SNOW       =&gt;&#39;.FALSE.,&#39;,
+    CICE_SNOW           =&gt;&#39;&quot;S-D&quot;,&#39;,
+    NICE_SNOW_NLAYERS   =&gt;&#39;4,&#39;,
+    XICE_SNOW_HEIGHT    =&gt;&#39;.3,&#39;,
+    LSIC_DRIVEN_THICKNESS=&gt;&#39;.FALSE.&#39;,
+    XSIC_DRIVEN_MAX_THICKNESS=&gt;&#39;1.&#39;,
+ },
+ NAM_PREP_SIMPLE_ICE=&gt;{
+    LINIT_FROM_SST =&gt; &#39;.TRUE.,&#39;,
+ },
+);</code></pre><ul><li><p><code>CSEA_ICE</code> : selects preferred sea ice scheme.</p><ul><li><code>NONE</code> – use default SURFEX ICEFLUX diagnostic scheme </li><li><code>SICE</code> – use SICE</li></ul></li><li><p><code>LHANDLE_SIC</code> : activates ice fraction handling</p></li><li><p><code>LSIC_FROM_FILE</code> : ice fraction data from an external source</p><ul><li><code>.TRUE.</code> – use the externally provided ice fraction data</li><li><code>.FALSE.</code> – assume that ice fraction data is encoded within SST field</li></ul></li><li><p><code>NICE_LAYER</code> : number of ice layers (<code>2 &lt; NICE_LAYER &lt; 100</code>)</p></li><li><p><code>CFILE_SIC</code> : external data file that stores ice fraction data</p></li><li><p><code>CTYPE_SIC</code> : type of external data source</p></li><li><p><code>XICE_THICKNESS</code> : uniform thickness of the ice field</p></li><li><p><code>LICE_HAS_SNOW</code> : snow upon the ice</p><ul><li><code>.TRUE.</code> – preform snow-enabled run</li><li><code>.FALSE.</code> – use bare ice configuration</li></ul></li><li><p><code>CICE_SNOW</code> : snow scheme that used to parametrize snow upon the ice</p><ul><li><code>S-D</code> – test heat diffusion scheme<ul><li><code>NICE_SNOW_NLAYERS</code> : number of snow layers for S-D snow scheme</li><li><code>XICE_SNOW_HEIGHT</code> : thickness of snow pack for S-D snow scheme</li></ul></li><li><code>3-L</code> – use 3-L explicit snow scheme </li></ul></li><li><p><code>LSIC_DRIVEN_THICKNESS</code> : use ice fraction to estimate ice thickness. <strong>Untested, should be set to <code>.FALSE.</code></strong></p></li><li><p><code>XSIC_DRIVEN_MAX_THICKNESS</code> : unused if <code>LSIC_DRIVEN_THICKNESS == .FALSE.</code></p></li><li><p><code>LINIT_FROM_SST</code> : use composite SST/SIST field to initialize sea ice temperatures</p></li></ul><p>This part represents settings connected to the Simple Sea-ice Scheme (SICE) by Yurii Batrak. Please note that SICE is not yet an official contribution to SURFEX and therefore you will not find any documentation of SICE via the SURFEX web site. </p><pre><code class="language-perl hljs">%isba_prep=(
+ NAM_PREP_ISBA=&gt;{
+   LISBA_CANOPY  =&gt; &#39;.TRUE.,&#39;,
+   LEXTRAP_TG    =&gt; &#39;.TRUE.,&#39;,
+   LEXTRAP_WG    =&gt; &#39;.TRUE.,&#39;,
+   LEXTRAP_WGI   =&gt; &#39;.TRUE.,&#39;,
+   LEXTRAP_SN    =&gt; &#39;.TRUE.,&#39;,
+   NDIM_EXTRAP   =&gt; &#39;20,&#39;,
+ },
+ NAM_PREP_ISBA_SNOW=&gt;{
+   LSWEMAX       =&gt; &#39;.TRUE.,&#39;,
+ },
+ NAM_DIAG_ISBAn=&gt;{
+   LPATCH_BUDGET=&gt;&#39;.TRUE.,&#39;,
+ },
+);</code></pre><ul><li><code>LISBA_CANOPY</code> : activates surface boundary multi layer scheme over vegetation</li><li><code>LEXTRAP_XX</code> : extrapolate XX points where LSM &lt; 0.5 (buffer only)</li><li><code>NDIM_EXTRAP</code> : Size of search domain for extrapolation (not in official SURFEX)</li><li><code>LSWEMAX</code> : logical switch to set an upper limit on initial snow water equivalent (set by <code>XSWEMAX</code> (=500 kg/m2 default) ).</li></ul><pre><code class="language-perl hljs">%fullpos_prep=(
+ NAM_FILE_NAMES=&gt;{
+   HPGDFILE      =&gt;&#39;&quot;PGDFILE&quot;,&#39;,
+   CINIFILE      =&gt;&#39;&quot;SURFXINI&quot;,&#39;,
+ },
+);
+
+%offline_prep=(
+ NAM_IO_OFFLINE=&gt;{
+   CSURF_FILETYPE       =&gt; &#39;&quot;LFI   &quot;,&#39;,
+   CPREPFILE            =&gt; &#39;&quot;SURFXINI&quot;,&#39;,
+   CPGDFILE             =&gt; &#39;&quot;PGD&quot;,&#39;,
+ },
+ NAM_PREP_SURF_ATM=&gt;{
+   CFILEPGD      =&gt;&#39;&quot;PGD_host&quot;,&#39;,
+   CFILEPGDTYPE  =&gt;&#39;&quot;LFI&quot;,&#39;,
+   CFILE      =&gt;&#39;&quot;INFILE&quot;,&#39;,
+   CFILETYPE  =&gt;&#39;CFILETYPE,&#39;,
+   NYEAR      =&gt;&#39;NYEAR,&#39;,
+   NMONTH     =&gt;&#39;NMONTH,&#39;,
+   NDAY       =&gt;&#39;NDAY,&#39;,
+   XTIME      =&gt;&#39;XTIME,&#39;,
+ },
+);</code></pre><p>Most options here are specified in different scripts and are normally not supposed to be modified.</p><pre><code class="language-perl hljs">%arome_prep=(
+ NAM_PREP_SEAFLUX=&gt;{
+   LSEA_SBL     =&gt; &#39;.FALSE.,&#39;,
+ },
+ NAM_SEAFLUXn=&gt;{
+    CSEA_ICE               =&gt;&#39;&quot;NONE&quot;,&#39;,
+    LHANDLE_SIC            =&gt;&#39;.FALSE.,&#39;,
+ },
+);</code></pre><p>Please note these special settings for the AROME model configuration.</p><h3 id="FORECAST"><a class="docs-heading-anchor" href="#FORECAST">FORECAST</a><a id="FORECAST-1"></a><a class="docs-heading-anchor-permalink" href="#FORECAST" title="Permalink"></a></h3><p>FORECAST represents in general the namelist settings used during Forecast. The default FORECAST settings are listed here. Some modifications can be done for specific model configurations and will be specified as e.g. <code>alaro_forecast</code> or <code>arome_forecast</code>.</p><pre><code class="language-perl hljs">%sice_forecast=(
+ NAM_SEAFLUXn=&gt;{
+    LHANDLE_SIC            =&gt;&#39;.TRUE.,&#39;,
+    LSIC_FROM_FILE         =&gt;&#39;.TRUE.,&#39;,
+    CSEA_ICE               =&gt;&#39;&quot;SICE&quot;,&#39;,
+    NICE_LAYER             =&gt;&#39;4,&#39;,
+ },
+ NAM_SIMPLE_ICE=&gt;{
+    XICE_THICKNESS            =&gt; &#39;.75,&#39;,
+    LICE_HAS_SNOW             =&gt; &#39;.FALSE.,&#39;,
+    CICE_SNOW                 =&gt; &#39;&quot;S-D&quot;,&#39;,
+    NICE_SNOW_NLAYERS         =&gt; &#39;4,&#39;,
+    XICE_SNOW_HEIGHT          =&gt; &#39;.3,&#39;,
+    LSIC_DRIVEN_THICKNESS     =&gt; &#39;.FALSE.&#39;,
+    XSIC_DRIVEN_MAX_THICKNESS =&gt; &#39;1.&#39;,
+ },
+ NAM_DIAG_SURFn=&gt;{
+   LCOEF             =&gt; &#39;.TRUE.,&#39;,
+   LSURF_VARS        =&gt; &#39;.TRUE.,&#39;,
+ },
+);</code></pre><p>This part represents settings connected to the Simple Sea-ice Scheme (SICE) by Yurii Batrak. Please note that SICE is not yet an official contribution to SURFEX and therefore you will not find any documentation of SICE via the SURFEX web site.</p><pre><code class="language-perl hljs">%isba_forecast=(
+ NAM_ISBAn=&gt;{
+   CROUGH        =&gt; &#39;&quot;NONE&quot;,&#39;,
+ },
+ NAM_DIAG_ISBAn=&gt;{
+   LPGD     =&gt; &#39;.TRUE.,&#39;,
+   LSURF_MISC_BUDGET=&gt; &#39;.TRUE.,&#39;,
+ },
+);
+
+%forecast=(
+ NAM_IO_OFFLINE=&gt;{
+  &#39;CSURF_FILETYPE&#39;      =&gt; &#39;&quot;LFI    &quot;,&#39;,
+  &#39;CFORCING_FILETYPE&#39;   =&gt; &#39;&quot;ASCII&quot;,&#39;,
+  &#39;CTIMESERIES_FILETYPE&#39;=&gt; &#39;&quot;LFI&quot;,&#39;,
+  &#39;XTSTEP_SURF&#39;         =&gt; $ENV{TSTEP}.&quot;,&quot;,
+  &#39;XTSTEP_OUTPUT&#39;       =&gt; &#39;3600.,&#39;,
+  &#39;LRESTART&#39;            =&gt; &#39;.TRUE.,&#39;,
+  &#39;CPREPFILE&#39;           =&gt; &#39;&quot;PREP&quot;,&#39;,
+  &#39;CPGDFILE&#39;            =&gt; &#39;&quot;PGD&quot;,&#39;,
+ },
+ NAM_SURF_ATM=&gt;{
+   XRIMAX=&gt;&#39;0.0,&#39;,
+ },
+ NAM_DIAG_SURFn=&gt;{
+   LSURF_BUDGET      =&gt; &#39;.TRUE.,&#39;,
+   N2M      =&gt;&#39;2,&#39;,
+ },
+ NAM_DIAG_SURF_ATMn=&gt;{
+   LT2MMW            =&gt; &#39;.TRUE.,&#39;,
+ },
+ NAM_DIAG_ISBAn=&gt;{
+   LPATCH_BUDGET  =&gt; &#39;.TRUE.,&#39;,
+ },
+ NAM_SSOn=&gt;{
+   CROUGH   =&gt; &quot;&#39;&quot;.$ENV{CROUGH}.&quot;&#39;&quot;,
+   XFRACZ0  =&gt; &#39;15.,&#39;,
+ },
+ NAM_SEAFLUXn=&gt;{
+  CSEA_FLUX =&gt; &#39;&quot;ECUME&quot;,&#39;,
+  LPWG      =&gt; &#39;.FALSE.,&#39;,
+  LPRECIP   =&gt; &#39;.FALSE.,&#39;,
+  LPWEBB    =&gt; &#39;.FALSE.,&#39;,
+  CSEA_ICE    =&gt;&#39;&quot;NONE&quot;,&#39;,
+  LHANDLE_SIC =&gt;&#39;.FALSE.,&#39;,
+  LPERTFLUX   =&gt; &#39;LPERTSURF,&#39;,
+ },
+ NAM_ISBAn=&gt;{
+  LCANOPY_DRAG =&gt; &#39;.TRUE.,&#39;,
+  XCDRAG       =&gt; &#39;0.01,&#39;,
+  LPERTSURF    =&gt; &#39;LPERTSURF,&#39;,
+ },
+);</code></pre><ul><li><code>XRIMAX</code>: limitation of Richardson number in drag computation (=0 default).</li><li><code>N2M</code> : flag to compute surface boundary layer characteristics (=0 default). N2M=2 computes temperature at 2 m, specific humidity at 2 m, relative humidity, zonal and meridian wind at 10 m, and Richardson number. 2m and 10m quantities are calculated interpolating between atmospheric forcing variables and surface temperature and humidity. Please note that if the surface boundary multi layer scheme is activated over any tile (as with <code>LISBA_CANOPY=T</code> over land) it overrides the diagnostic N2M method. </li><li><code>LT2MMW</code> : Alternative weighting of grid average T2M giving more weight to the land tile (=FALSE default).</li><li><code>CROUGH</code>: type of orographic roughness length. CROUGH is decided by setting <code>CROUGH=&quot;NONE&quot;</code> in <a href="../ConfigureYourExperiment/#configure-your-experiment">config_exp.h</a> which means that no orographic treatment is applied.</li><li><code>XFRACZ0</code> : Z0=Min(Z0, Href/XFRACZ0). Not applied here since <code>CROUGH=&quot;NONE&quot;</code>.</li><li><code>LPERTFLUX</code>: multiplicative perturbation of Ecume fluxes for ensemble forecasting. In HARMONIE this is set in a number of scripts under scr.</li><li><code>LPERTSURF</code>: if .True. modification of surface fluxes for ensemble forecasting. In HARMONIE this is set in a number of scripts under scr.</li><li><code>LCANOPY_DRAG</code>: drag activated in SBL scheme within the canopy.</li><li><code>XCDRAG</code>: drag coefficient in canopy (=0.15 default in SURFEX).</li></ul><h3 id="ASSIMILATION"><a class="docs-heading-anchor" href="#ASSIMILATION">ASSIMILATION</a><a id="ASSIMILATION-1"></a><a class="docs-heading-anchor-permalink" href="#ASSIMILATION" title="Permalink"></a></h3><p>ASSIMILATION represents in general the surface assimilation namelist settings used for CANARI and SURFEX. The default ASSIMILATION settings are listed here. The SURFEX assimilation method used (OI or EKF) is decided by setting <code>ANASURF=CANARI_OI_MAIN</code> in <a href="../ConfigureYourExperiment/#configure-your-experiment">config_exp.h</a>. OI is default and EKF is still experimental.</p><pre><code class="language-perl hljs">%sice_assim=(
+ NAM_SEAFLUXn=&gt;{
+    LHANDLE_SIC            =&gt;&#39;.TRUE.,&#39;,
+    LSIC_FROM_FILE         =&gt;&#39;.TRUE.,&#39;,
+    CSEA_ICE               =&gt;&#39;&quot;SICE&quot;,&#39;,
+    NICE_LAYER             =&gt;&#39;4,&#39;,
+ },
+ NAM_SIMPLE_ICE=&gt;{
+   LICE_HAS_SNOW       =&gt;&#39;.FALSE.,&#39;,
+   XICE_THICKNESS      =&gt;&#39;.75,&#39;,
+   CICE_SNOW           =&gt;&#39;&quot;S-D&quot;,&#39;,
+   NICE_SNOW_NLAYERS   =&gt;&#39;4,&#39;,
+   XICE_SNOW_HEIGHT    =&gt;&#39;.3,&#39;,
+   LSIC_DRIVEN_THICKNESS      =&gt;&#39;.FALSE.&#39;,
+   XSIC_DRIVEN_MAX_THICKNESS  =&gt;&#39;1.&#39;,
+ 
+},
+ NAM_PREP_SEAFLUX=&gt;{
+    CFILE_SIC          =&gt; &#39;CFILE_SIC,&#39;,
+    CTYPE_SIC          =&gt; &#39;&quot;GRIB  &quot;&#39;,
+    LSEA_SBL           =&gt; &#39;.FALSE.&#39;,
+ },
+ NAM_PREP_SIMPLE_ICE=&gt;{
+    LINIT_FROM_SST             =&gt;&#39;.TRUE.,&#39;,
+    LPREP_ONLY_NEW_ICE         =&gt;&#39;.TRUE.,&#39;,
+    LEXTRAPOLATE_FROM_FORECAST =&gt;&#39;.TRUE.,&#39;,
+    CFORECAST_GRIB             =&gt;&#39;CFORECAST_GRIB&#39;,
+ },
+);</code></pre><ul><li><code>LPREP_ONLY_NEW_ICE</code> : perform prep in current grid cell only if ice state is undefined</li><li><code>LEXTRAPOLATE_FROM_FORECAST</code> : use previous forecast to fill areas with new ice. If <code>LINIT_FROM_SST == .TRUE. .AND. LEXTRAPOLATE_FROM_FORECAST == .TRUE.</code> option <code>LINIT_FROM_SST</code> is forced to <code>.FALSE.</code></li><li><code>CFORECAST_GRIB</code> : previous forecast in GRIB format</li></ul><p>This part represents settings connected to the Simple Sea-ice Scheme (SICE) by Yurii Batrak. Please note that SICE is not yet an official contribution to SURFEX and therefore you will not find any documentation of SICE via the SURFEX web site. </p><pre><code class="language-perl hljs">%assim_surfex=(
+ NAM_NACVEG=&gt;{
+   NECHGU      =&gt; &#39;&#39;.$ENV{FCINT}.&#39;,&#39;,
+   RCLIMCA     =&gt; &#39;0.,&#39;,
+   RCLISST     =&gt; &#39;0.05,&#39;,
+   SIGH2MO     =&gt; &#39;0.10,&#39;,
+   SIGT2MO     =&gt; &#39;1.0,&#39;,
+   LOBS2M      =&gt; &#39;.TRUE.,&#39;,
+   LOBSWG      =&gt; &#39;.FALSE.,&#39;,
+ },
+ NAM_IO_OFFLINE=&gt;{
+   CSURF_FILETYPE       =&gt; &#39;CSURF_FILETYPE,&#39;,
+   CTIMESERIES_FILETYPE =&gt; &#39;&quot;LFI &quot;,&#39;,
+   CFORCING_FILETYPE    =&gt; &#39;&quot;ASCII&quot;,&#39;,
+   LRESTART             =&gt; &#39;.TRUE.,&#39;,
+   XTSTEP_SURF          =&gt; &#39;3600.,&#39;,
+   XTSTEP_OUTPUT        =&gt; &#39;3600.,&#39;,
+ },
+ NAM_ASSIM=&gt;{
+   LASSIM              =&gt; &#39;.TRUE.,&#39;,
+   LEXTRAP_WATER       =&gt; &#39;.TRUE.,&#39;,
+   LEXTRAP_SEA         =&gt; &#39;.FALSE.,&#39;,
+   LEXTRAP_NATURE      =&gt; &#39;.FALSE.&#39;,
+   LREAD_SST_FROM_FILE =&gt; &#39;.TRUE.,&#39;,
+   LWATERTG2           =&gt; &#39;.TRUE.,&#39;,
+   LAESNM              =&gt; &#39;LAESNM,&#39;,
+   LECSST              =&gt; &#39;LECSST,&#39;,
+   LAROME              =&gt; &#39;LAROME,&#39;,
+   NPRINTLEV           =&gt; &#39;1,&#39;,
+ },
+);
+
+%oi_main=(
+ NAM_ASSIM=&gt;{
+   CASSIM_ISBA         =&gt; &#39;&quot;OI&quot;,&#39;,
+ },
+);</code></pre><h2 id="surfex_selected_output.pm"><a class="docs-heading-anchor" href="#surfex_selected_output.pm"><code>surfex_selected_output.pm</code></a><a id="surfex_selected_output.pm-1"></a><a class="docs-heading-anchor-permalink" href="#surfex_selected_output.pm" title="Permalink"></a></h2><p>The output from SURFEX to the .sfx fa-files (e.g. <code>ICMSHHARM+0002.sfx</code>) is in general decided by SURFEX <code>NAM_DIAG</code> namelist settings. These settings activate or deactivate groups of variables in output files. When one or more such groups are activated it is possible to limit the output to a specific list of variables by the use of the LSELECT/CSELECT options in SURFEX. This way of specifying output from SURFEX is the default way in cy40h. The setting is <code>SURFEX_LSELECT=&quot;yes&quot;</code> in <code>config_exp.h</code>. When <code>SURFEX_LSELECT=&quot;yes&quot;</code> the namelist <code>nam/surfex_selected_output.pm</code> is used to specify the output variables. The style of <code>surfex_selected_output.pm</code> is</p><pre><code class="language-perl hljs">%surfex_output=(
+ NAM_WRITE_DIAG_SURFn=&gt;{
+   NSTEP_DUMP_STATE =&gt; &#39;NSTEP_DUMP_STATE,&#39;,
+   LSELECT     =&gt; &#39;.TRUE.,&#39;,
+   CSELECT     =&gt; &#39;
+&quot;Z0&quot;,
+&quot;RNC&quot;,
+&quot;HC&quot;,
+
+
+&quot;T2M_P&quot;,
+&quot;T2MMIN_P&quot;,
+&quot;T2MMAX_P&quot;,&#39;
+ },);</code></pre><p>Please note the &quot; &#39; &quot; character at the end of the last variable line <code>&quot;T2MMAX_P&quot;,&#39;</code>. Don&#39;t miss it, it is very important! The naming convention for variables in this file follows the SURFEX naming convention which is not exactly how they appear in fa-files. A fa-file output example from a .sfx file may look:</p><pre><code class="language-bash hljs">SFX.SST         &gt; 001:011-  000-102@20160301_15:00+002h00m tri:000 000 SST
+SFX.TS_WATER    &gt; 001:011-  770-105@20160301_15:00+002h00m tri:000 000 TS_WATER
+X001TG1         &gt;                   20160301_15:00+002h00m         000
+X001TG2         &gt;                   20160301_15:00+002h00m         000
+X001WG1         &gt;                   20160301_15:00+002h00m         000
+X001WG2         &gt;                   20160301_15:00+002h00m         000
+SFX.TROAD1      &gt;                   20160301_15:00+002h00m         000
+SFX.WS_ROAD     &gt; 001:024-  950-105@20160301_15:00+002h00m tri:000 000 WS_ROAD</code></pre><p>You get the corresponding SURFEX names by removing &quot;SFX.&quot; or &quot;X001&quot; at the beginning of these fa-names.</p><p>The .sfx files are used as first guess for next forecast. However, the first guess needs ALL SURFEX variables and not only a subset as defined by LSELECT/CSELECT. Therefore, a full .sfx file (e.g. <code>ICMSHFULL+0003.sfx</code>) is created for each assimilation cycle hour in addition to the corresponding limited file <code>ICMSHHARM+0003.sfx</code>. The output frequency of full files is defined by <code>SURFEX_DUMP_STATE_STEPS=&quot;&quot;</code> in <a href="../ConfigureYourExperiment/#configure-your-experiment">config_exp.h</a>.</p><p>The content of the FULL-files can be used to identify additional variables to add to <code>surfex_selected_output.pm</code>.</p><h2 id="Change-your-namelists"><a class="docs-heading-anchor" href="#Change-your-namelists">Change your namelists</a><a id="Change-your-namelists-1"></a><a class="docs-heading-anchor-permalink" href="#Change-your-namelists" title="Permalink"></a></h2><p>There are several ways of changing namelists generated from the dictionary.</p><ul><li><p>Copy the <code>harmonie_namelist.pm</code> file to your local experiment directory and change the right section like for any source or script modification.</p></li><li><p>If you feel uncertain where to change in the dictionary you can copy the actual namelist used in your run. Every namelist used is listed in the logfile so copy it from there and put it under the <code>nam</code> directory in your local experiment. Make sure you give it a unique name. You must then also change the script(s) using this namelist like in the Forecast script <code>scr/Forecast</code>.</p></li></ul><pre><code class="language-bash hljs">#  Get namelist name
+#NAMELIST=$WRK/$WDIR/namelist_forecast
+#Get_namelist forecast $NAMELIST
+NAMELIST=$HM_LIB/nam/namelist_forecast_with_a_unique_name
+</code></pre><p>For namelists not present in the dictionary you just copy them to you local <code>nam</code> directory.</p><p>There is also a description on how to generate new namelist dictionaries <a href="../../System/UpdateNamelists/#update-namelists">here</a>.</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../ConfigureYourExperiment/">« Experiment</a><a class="docs-footer-nextpage" href="../UseofObservation/">Observations »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="auto">Automatic (OS)</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.0.1 on <span class="colophon-date" title="Monday 26 February 2024 11:42">Monday 26 February 2024</span>. Using Julia version 1.9.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
