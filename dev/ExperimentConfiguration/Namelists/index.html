@@ -17,7 +17,23 @@
   CISBA          =&gt; &#39;&quot;3-L&quot;,&#39;,
   NGROUND_LAYER  =&gt; &#39;3,&#39;,
  },
-);</code></pre><p>The section used here is decided by setting <code>CISBA=&quot;3-L&quot;</code> (default) in <a href="../ConfigureYourExperiment/#configure-your-experiment">config_exp.h</a>.</p><pre><code class="language-bash hljs">%isba_pgd=(
+);
+
+# DIF ISBA scheme
+%isba_DIF=(
+ NAM_ISBA=&gt;{
+  CISBA          =&gt; &#39;&quot;DIF&quot;,&#39;,
+  NGROUND_LAYER  =&gt; &#39;14,&#39;,
+  LMEB           =&gt;&#39;.TRUE.,&#39;,
+  YSOC_TOP      =&gt; &#39;&quot;soc_top&quot;,&#39;,
+  YSOC_SUB      =&gt; &#39;&quot;soc_sub&quot;,&#39;,
+  YSOCFILETYPE =&gt; &#39;&quot;DIRECT&quot;,&#39;,
+  XUNIF_RUNOFFB  =&gt; &#39;0.2,&#39;,
+  CPEDO_FUNCTION =&gt; &#39;&quot;CO84&quot;,&#39;,
+  CPHOTO         =&gt; &#39;&quot;NON&quot;,&#39;,
+  CGNDRES        =&gt; &#39;&quot;DSL&quot;,&#39;,
+ },
+);</code></pre><p>The section used here is decided by setting <code>CISBA=&quot;3-L&quot;</code> (default) in <a href="../ConfigureYourExperiment/#configure-your-experiment">config_exp.h</a>. The parameter <code>CGNDRES =&gt; &quot;DSL&quot;</code> in the ISBA DIF settings activates the dry soil layer resistance formulation for bare soil evaporation.</p><pre><code class="language-bash hljs">%isba_pgd=(
  NAM_ISBA=&gt;{
    YCLAY         =&gt; &#39;YCLAY,&#39;,
    YCLAYFILETYPE =&gt; &#39;&quot;DIRECT&quot;,&#39; ,
@@ -293,4 +309,4 @@ SFX.WS_ROAD     &gt; 001:024-  950-105@20160301_15:00+002h00m tri:000 000 WS_ROA
 #NAMELIST=$WRK/$WDIR/namelist_forecast
 #Get_namelist forecast $NAMELIST
 NAMELIST=$HM_LIB/nam/namelist_forecast_with_a_unique_name
-</code></pre><p>For namelists not present in the dictionary you just copy them to you local <code>nam</code> directory.</p><p>There is also a description on how to generate new namelist dictionaries <a href="../../System/UpdateNamelists/#update-namelists">here</a>.</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../ConfigureYourExperiment/">« Experiment</a><a class="docs-footer-nextpage" href="../UseofObservation/">Observations »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.14.1 on <span class="colophon-date" title="Wednesday 15 October 2025 15:20">Wednesday 15 October 2025</span>. Using Julia version 1.11.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</code></pre><p>For namelists not present in the dictionary you just copy them to you local <code>nam</code> directory.</p><p>There is also a description on how to generate new namelist dictionaries <a href="../../System/UpdateNamelists/#update-namelists">here</a>.</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../ConfigureYourExperiment/">« Experiment</a><a class="docs-footer-nextpage" href="../UseofObservation/">Observations »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.14.1 on <span class="colophon-date" title="Thursday 23 October 2025 10:15">Thursday 23 October 2025</span>. Using Julia version 1.11.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
