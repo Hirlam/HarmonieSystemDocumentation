@@ -1,6 +1,6 @@
 var DOC_VERSIONS = [
-  "dev-CY49T2h",
+  "dev",
   "CY46h.1.1",
 ];
 var DOCUMENTER_NEWEST = "dev";
-var DOCUMENTER_STABLE = "dev-CY49T2h";
+var DOCUMENTER_STABLE = "dev";
