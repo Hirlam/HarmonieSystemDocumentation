@@ -1,7 +1,6 @@
 var DOC_VERSIONS = [
-  "stable",
-  "v46.1",
   "dev",
+  "CY46h.1.1",
 ];
-var DOCUMENTER_NEWEST = "v46.1.1";
-var DOCUMENTER_STABLE = "stable";
+var DOCUMENTER_NEWEST = "dev";
+var DOCUMENTER_STABLE = "dev";
