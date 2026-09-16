@@ -1,0 +1,42 @@
+digraph cloudingest {
+
+// files 
+node[shape="note",fillcolor="#ff99ff",style=filled] 
+A[label="$WRK/first_guess"] 
+C[label="$WRK/first_guess_gridpp_grib"]
+E[label= "$ARCHIVE/FirstGuess4Gridpp_cloud_base.nc"]
+F[label="$OBDIR/obYYYYMMDDHH"] 
+H[label="$ARCHIVE/obYYYYMMDDHH"]
+J[label= "$ARCHIVE/qc_obs_cloud_base.json"]
+L[label= "$ARCHIVE/an_cloud_base.nc"]
+Q[label= "MXMIN1999+0000 ($WRK/fc_start)"]
+O[label="$OBDIR/MSGcloudYYYYMMDDHH.grib"]
+N[label="$WRK/fc_start"]
+
+// tasks
+node[shape="rectangle",fillcolor="yellow",style=filled] 
+B[label="FirstguessFA2grib"]
+D[label="FirstGuessCB"] 
+G[label="Bufr2json"]  
+I[label="Qualitycontrol"]
+K[label="OptimalInterpolation"]
+M[label="MSG_combine"]
+P[label="Minim"]
+
+// edges 
+A -> B -> C
+C -> D -> E
+F -> G -> H
+H -> I -> J
+
+J -> K
+E -> K
+K -> L
+
+L -> M
+P -> Q -> M
+O -> M
+M -> N
+
+
+}
