@@ -1,0 +1,86 @@
+digraph Harmonie {
+
+//-------------------------------------------
+//         Tasks
+//-------------------------------------------
+node[shape="rectangle"]  
+Prepare_ob    
+Bator   
+Oulan          
+FirstGuess
+Fetch_assim_data
+Canari      
+Screening    
+Minim          
+Forecast       
+
+
+//------------------------------------------/
+//          Files
+//------------------------------------------/
+node[shape="note"] 
+MXMIN1999p0000      [label="MXMIN1999+0000", tooltip="Upper air Analysis"]
+ICMSHANALp0000sfx   [label="ICMSHANAL+0000.sfx", tooltip="Surface Analysis"]
+obYYYYMMDD          [label="observations/ob\$YYYYMMDD"]
+OBSOUL              [label="oulan/OBSOUL"]
+odb                 [shape="cylinder"] 
+odb_ccma            [shape="cylinder"]
+odb_can_merge       [shape="cylinder"]
+odbvar              [shape="cylinder"]
+odb_can             [shape="cylinder"]
+odb_can_ori         [shape="cylinder"]
+fc_start            
+first_guess  
+first_guess_sfx    
+fc_start_sfx      
+VarBC_very_fg       [label="VarBC.cycle", tooltip="VarBC very first guess" ]
+VarBC_fg            [label="VarBC.cycle", tooltip="VarBC first guess"]
+VarBC_an            [label="VarBC.cycle", tooltip="VarBC analysis"]
+stabal96            [label="stabal96.{cv,bal}", tooltip="Structure Functions"]
+
+
+/// links
+
+                                                                    Prepare_ob        -> {obYYYYMMDD }
+                                                                    Fetch_assim_data  -> {VarBC_very_fg, stabal96}
+                                                                    FirstGuess        -> {first_guess_sfx, first_guess}
+{obYYYYMMDD                                                    } -> Oulan             -> {OBSOUL }
+{OBSOUL, obYYYYMMDD                                            } -> Bator             -> {odb, odb_can_ori }
+{first_guess, first_guess_sfx, ECMWF_CANARI_SST_SIC,odb_can_ori} -> Canari            -> {ICMSHANALp0000sfx, odb_can, odb_can_merge}
+{first_guess, VarBC_very_fg, odb                               } -> Screening         -> {odb_ccma, odbvar, VarBC_fg }
+{odb_ccma, VarBC_fg, first_guess                               } -> Minim             -> {MXMIN1999p0000, VarBC_an} 
+{fc_start, fc_start_sfx                                        } -> Forecast 
+
+
+//----------------------------------
+// "Static" input,   namelists, climate files,  etc. 
+//----------------------------------
+  
+{LISTE_NOIRE_DIAP, LISTE_LOC,param_batorcfg } -> Bator
+{stabal96                    } -> Minim
+  
+
+
+
+//---------------------------------------------------------------
+//                   Symlinks
+//---------------------------------------------------------------
+ICMSHANALp0000sfx -> fc_start_sfx  [label="Canari",            style=dashed]
+MXMIN1999p0000    -> fc_start       [label="Minim",             style=dashed]
+
+//-----------------------------------------------------------------
+//            URL
+//----------------------------------------------------------------
+Prepare_ob       [href="../Observations/ObservationData/index.html"]
+Canari           [href="../DataAssimilation/Surface/CANARI/index.html"]
+Forecast         [href="../ForecastModel/Forecast/index.html"]
+Oulan            [href="../Observations/Oulan/index.html"]
+Bator            [href="../Observations/Bator/index.html"]
+Minim            [href="http://www.umr-cnrm.fr/gmapdoc/IMG/pdf/ykminim45.pdf"]
+Screening        [href="../DataAssimilation/Screening/index.html"]
+stabal96       [href="../DataAssimilation/Structurefunctions/index.html"]
+LISTE_NOIRE_DIAP [href="../Observations/Bator/index.html#LISTE_NOIRE_DIAP-1"]
+LISTE_LOC        [href="../Observations/Bator/index.html#LISTE_LOC-1"] 
+
+}// Digraph Harmonie
+
